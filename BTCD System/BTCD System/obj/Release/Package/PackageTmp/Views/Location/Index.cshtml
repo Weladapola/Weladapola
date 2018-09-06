@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Emblishment_Management_System.Models.emsLocationM>
+
+@{
+    ViewBag.Title = "Location Master";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Location Master
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Master</a></li>
+        <li class="active">Location</li>
+    </ol>
+    <style>
+        form {
+            display: inline;
+        }
+    </style>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12 btn-container-right">
+                    <div class="btn-group">
+                        @using (Html.BeginForm("Create", "Location", FormMethod.Get))
+                        {
+                            <button type="submit" class="btn btn-primary">New Location</button>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Index", "Home")'"> Cancel  </button>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Your Page Content Here -->
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Location Master Details</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" id="f" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="box">
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="dtVendors" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>Location Code</th>
+                                        <th>Location Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @using (@Html.BeginForm("Edit", "Location", new { Id = item.ID  }, FormMethod.Get, new { @title = "Edit" }))
+                                                {<button type="submit" class="btn  btn-warning btn-xs glyphicon glyphicon-edit"></button>}
+
+                                                @using (@Html.BeginForm("Delete", "Location", new { Id = item.LocationCode }, FormMethod.Post, new { @title = "Delete" }))
+                                                {<button type="submit" class="btn btn-danger btn-xs glyphicon glyphicon-trash" data-toggle="confirmation"></button>}
+                                            </td>
+                                            <td>@Html.DisplayFor(modelItem => item.LocationCode)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

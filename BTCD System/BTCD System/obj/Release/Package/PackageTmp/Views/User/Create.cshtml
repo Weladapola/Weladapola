@@ -1,0 +1,94 @@
+﻿@model BTCD_System.Models.UserU
+
+@{
+    ViewBag.Title = "User Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Create Employee
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Transaction</a></li>
+        <li class="active">Employee</li>
+    </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+    @using (Html.BeginForm("Create", "User", FormMethod.Post, new { @Id = "frmUser" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">&nbsp;Save&nbsp;&nbsp;</button>
+                            <button type="reset" class="btn btn-success">&nbsp;Reset&nbsp;&nbsp;</button>
+                            <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "User")'"> Back  </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">User Registration Details</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Employee</label>
+                           @Html.DropDownListFor(model => model.EmployeeCode, (IEnumerable<SelectListItem>)(ViewBag.Employee), "Select Employee", new { @class = "form-control select2", @style = "width: 100%;", @Id = "EmployeeCode", required = "required" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", required = "required" } })
+                        </div>
+
+
+                        <div class="form-group checkbox">
+                            <label class="form-check-label">
+                                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-check-input", type = "checkbox"  } })
+                                Activation
+                            </label>
+                        </div>
+
+                        </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Username</label>
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Username", required = "required" } })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirm Password", required = "required" } })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+</section>

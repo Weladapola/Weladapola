@@ -1,0 +1,59 @@
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\csc.exe
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\System.Collections.Immutable.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\System.Reflection.Metadata.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\vbc.exe
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\VBCSCompiler.exe
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\VBCSCompiler.exe.config
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.dll.config
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.pdb
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.pdb
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\csc.exe
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\System.Collections.Immutable.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\System.Reflection.Metadata.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\vbc.exe
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\VBCSCompiler.exe
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\VBCSCompiler.exe.config
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.dll.config
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.pdb
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.csprojResolveAssemblyReference.cache
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.dll
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.pdb
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\csc.exe
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\System.Collections.Immutable.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\System.Reflection.Metadata.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\vbc.exe
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\VBCSCompiler.exe
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\roslyn\VBCSCompiler.exe.config
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.dll.config
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\bin\Emblishment Management System.pdb
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.dll
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.pdb
+F:\Development-svn\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.csprojResolveAssemblyReference.cache
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\H\Anuradha\Projects\Dropbox Projects\Dropbox\Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\ReportViewerForMvc.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\ReportViewerForMvc.dll
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\obj\Debug\Emblishment Management System.csprojResolveAssemblyReference.cache
+D:\Office Projects\Emblishment\Emblishment Management System\Emblishment Management System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml

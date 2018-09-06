@@ -1,0 +1,125 @@
+﻿@model  IEnumerable<BTCD_System.Models.CustomerRequirment>
+@using BTCD_System.Common
+
+<table id="tblItemDetails" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>#</th>
+            <th style="display: none;">Item Id</th>
+            <th>Item</th>
+            <th>Grade</th>
+            <th>UOM</th>
+            <th>Required Date</th>
+            <th>Required Qty</th>
+            <th>Required Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BTCD_System.Models.CustomerRequirment CustomerRequirment in Model)
+            {
+            <tr>
+                <td>
+                    <div>
+                        <button type="button" class="btn btn-danger btn-xs glyphicon glyphicon-trash DeleteBtn" id="btnDelete"></button>
+                    </div>
+                </td>
+                <td class="clsRowId">@CustomerRequirment.RequirementId</td>
+                <td class="clsItemId" style="display: none;">@CustomerRequirment.ItemId</td>
+                <td>@CustomerRequirment.ItemName</td>
+                <td>@CustomerRequirment.GradeDesc</td>
+                <td>@CustomerRequirment.UOMDesc</td>
+                <td>@CustomerRequirment.RequiredDate</td>
+                <td class="clsQty"><input type="number" value="@CustomerRequirment.RequiredQty" class="txtQty decimal" /></td>
+                <td class="clsPrice"><input type="number" value="@CustomerRequirment.RequiredPrice" class="txtPrice decimal" /></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@if (TempData["Message"] != null)
+{
+    MessageBox UserMessage = (MessageBox)TempData["Message"];
+    @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+}
+
+<script>
+    $('.clsQty').change(function () {
+        var $row = $(this).closest("tr");
+        var ItemId = $row.find(".clsItemId").text();
+        var Qty = $(this).closest('tr').find('.txtQty').val();
+
+
+        if (Qty <= 0) {
+            bootbox.alert('Invalid required qty.');
+        }
+        else {
+            $.ajax({
+                url: '@Url.Action("PartialEditQty", "CustomerRequirment")',
+                type: "POST",
+                data: { ItemId: ItemId, Qty: Qty },
+                success: function (result) {
+                    $("#divPartialView").html(result);
+                }
+            });
+        }
+    });
+
+    $('.clsPrice').change(function () {
+        var $row = $(this).closest("tr");
+        var ItemId = $row.find(".clsItemId").text();
+        var Price = $(this).closest('tr').find('.txtPrice').val();
+
+
+        if (Price <= 0) {
+            bootbox.alert('Invalid required Price.');
+        }
+        else {
+            $.ajax({
+                url: '@Url.Action("PartialEditPrice", "CustomerRequirment")',
+                type: "POST",
+                data: { ItemId: ItemId, Price: Price },
+                success: function (result) {
+                    $("#divPartialView").html(result);
+                }
+            });
+        }
+    });
+
+
+    $(document).ready(function () {
+        $(".DeleteBtn").click(function () {
+
+            var $row = $(this).closest("tr");
+            var ItemId = $row.find(".clsItemId").text();
+
+            $.ajax({
+                url: '@Url.Action("PartialDeleteItem", "CustomerRequirment")',
+                type: "POST",
+                data: { ItemId: ItemId },
+                success: function (result) {
+                    $("#divPartialView").html(result);
+                }
+            });
+
+
+        });
+    });
+
+
+    $(".decimal").keypress(function (e) {
+        var keyCode = (e.which) ? e.which : e.keyCode;
+        if ((keyCode >= 48 && keyCode <= 57) || (keyCode == 8))
+            return true;
+        else if (keyCode == 46) {
+            var curVal = document.activeElement.value;
+            if (curVal != null && curVal.trim().indexOf('.') == -1)
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    });
+</script>

@@ -1,0 +1,81 @@
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\csc.exe
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\System.Collections.Immutable.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\System.Reflection.Metadata.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\vbc.exe
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe.config
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\BTCD System.dll.config
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\BTCD System.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\BTCD System.pdb
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\Business2Customer Direct\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\obj\Debug\BTCD System.dll
+D:\Business2Customer Direct\BTCD System\BTCD System\obj\Debug\BTCD System.pdb
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\csc.exe
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\System.Collections.Immutable.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\System.Reflection.Metadata.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\vbc.exe
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe.config
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\BTCD System.dll.config
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\BTCD System.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\BTCD System.pdb
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\Business2Customer\trunk\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
+D:\Business2Customer\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb
+D:\Business2Customer\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\csc.exe
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\System.Collections.Immutable.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\System.Reflection.Metadata.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\vbc.exe
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe.config
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\BTCD System.dll.config
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\BTCD System.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\BTCD System.pdb
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
+F:\Development-personal\Business2Customer.git\trunk\BTCD System\BTCD System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\csc.exe
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\vbc.exe
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\BTCD System.dll.config
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\BTCD System.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\BTCD System.pdb
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
+E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb

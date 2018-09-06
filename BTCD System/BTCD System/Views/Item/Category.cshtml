@@ -1,0 +1,61 @@
+﻿@model  IEnumerable<BTCD_System.Models.CategoryM>
+@using BTCD_System.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Category
+        <small>Select Item Category</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Item</a></li>
+        <li class="active">Category</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+
+    @{ int count = 0; bool IsRow = true; }
+
+    @foreach (CategoryM CategoryM in Model)
+    {
+        count++;
+
+        if (IsRow == true)
+        {
+            @:<div class="row">
+        }
+
+        if (count <= 4)
+        {
+            IsRow = false;
+
+            Tile tile = new Tile();
+            
+            tile.Controller = "Item";
+            tile.Action = "Details";
+            tile.Value = CategoryM.CategoryId.ToString();
+            tile.Subject = CategoryM.CategoryName;
+            tile.Image = CategoryM.ImageUrl;
+
+            Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
+        }
+
+        if (count == 4)
+        {
+            count = 0;
+            IsRow = true;
+            @:</div>
+        }
+    }
+
+</section>
+<!-- /.content -->

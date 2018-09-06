@@ -1,0 +1,24 @@
+﻿@model  BTCD_System.Models.Tile
+
+<div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+        <span class="info-box-icon bg-green">
+            @if (@Model.Image.IsEmpty())
+            {
+                @:<a href="@Url.Action(Model.Action, Model.Controller,new { Id = Model.Value })" style="color: white;">
+                @:<i class="fa fa-image"></i>
+                @:</a>
+            }
+            else
+            {
+                @:<a href="@Url.Action(Model.Action, Model.Controller,new { Id = Model.Value })" style="color: white;">
+                @:<img src="@Url.Content(@Model.Image)" class="info-box-icon">
+                @:</a>
+            }
+        </span>
+        <div class="info-box-content">
+            <span class="info-box-text">@Model.Subject</span>
+        </div>
+        <!-- /.info-box-content -->
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<BTCD_System.Models.UserRoleTUview>
+
+@{
+    ViewBag.Title = "User Roles";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        User
+        <small>User Roles</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> User</a></li>
+        <li class="active">User Roles</li>
+    </ol>
+</section>
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title"></h3>
+        <p>
+            @Html.ActionLink("Back to user details", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    </div>
+</div>
+
+        <div class="row">
+            <section class="content">
+                <div class="col-md-6">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Role Details</h3>
+                        </div>
+                        <div class="box-body">
+                            @*@Html.Partial("~/Views/StockType/AllRoles.cshtml", ViewBag.Roles as List<emsUserRoleU>);*@
+                            @Html.Action("AllRoles", "User", new {username = (string)TempData["keyUser"] })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">User Details</h3>
+
+                        </div>
+                        <div class="box-body">
+                            
+                            <table class="table table-hover table-striped table-bordered table">
+                                <thead>
+                                    <tr>
+
+                                        <th></th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Username)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RoleID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RoleName)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.ActionLink(" ", "DeleteUserRoles", new { roleId = item.RoleID, username = (string)TempData["keyUser"], userid = (int)TempData["userid"] }, new { @class = "btn btn-danger btn-xs glyphicon glyphicon-minus" })
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Username)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoleID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RoleName)
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>

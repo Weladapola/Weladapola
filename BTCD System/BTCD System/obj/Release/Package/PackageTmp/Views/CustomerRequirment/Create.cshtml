@@ -1,0 +1,137 @@
+﻿@model IEnumerable<BTCD_System.Models.CustomerRequirment>
+@using BTCD_System.Common
+
+@{
+    ViewBag.Title = "Customer Requirement - New Customer Requirement";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Customer Requirement
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Requirement</a></li>
+        <li class="active">Customer Requirement</li>
+    </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+    @using (Html.BeginForm("Create", "CustomerRequirment", FormMethod.Post, new { @Id = "frmCustomerRequirment" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">&nbsp;Save&nbsp;&nbsp;</button>
+                            <button type="reset" class="btn btn-success">&nbsp;Reset&nbsp;&nbsp;</button>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Cancel", "CustomerRequirment")'"> Cancel  </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Customer Details</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Category</label>
+                            @Html.DropDownListFor(model => model.SingleOrDefault().CustomerId, (IEnumerable<SelectListItem>)(ViewBag.Customer), "Select Customer", new { @class = "form-control select2", @style = "width: 100%;", @Id = "CustomerId", required = "required" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    }
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Requirment Item</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+         @using (Html.BeginForm(null, null, FormMethod.Post))
+         {
+             BTCD_System.Models.CustomerRequirment objCustomerRequirment = new BTCD_System.Models.CustomerRequirment();
+             Html.RenderPartial("_PartialItemRequirment", objCustomerRequirment);
+         }
+    </div>
+
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Requirment Item Detail(s)</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div id="divPartialView">
+            @{ Html.RenderPartial("_PartialItemDetails", Model); }
+        </div>
+    </div>
+
+
+</section>
+<!-- /.content -->
+
+@*@if (TempData["Message"] != null)
+{
+    MessageBox UserMessage = (MessageBox)TempData["Message"];
+    @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+}*@
+
+
+
+
+<script>
+    $(".decimal").keypress(function (e) {
+        var keyCode = (e.which) ? e.which : e.keyCode;
+        if ((keyCode >= 48 && keyCode <= 57) || (keyCode == 8))
+            return true;
+        else if (keyCode == 46) {
+            var curVal = document.activeElement.value;
+            if (curVal != null && curVal.trim().indexOf('.') == -1)
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    });
+
+
+</script>
+
+

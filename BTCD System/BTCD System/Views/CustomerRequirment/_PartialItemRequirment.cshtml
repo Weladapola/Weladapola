@@ -1,0 +1,146 @@
+﻿@model BTCD_System.Models.CustomerRequirment
+
+<div class="box-body">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Item Category</label>
+                @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)(ViewBag.Category), "Select Category", new { @class = "form-control select2", @style = "width: 100%;", @Id = "CategoryId", required = "required", @onchange = "FillItemsFormCategory();" })
+            </div>
+
+            <div class="form-group">
+                <label>Item</label>
+                @Html.DropDownListFor(model => model.ItemId, Enumerable.Empty<SelectListItem>(), "Select Item", new { @class = "form-control select2", @style = "width: 100%;", @Id = "ItemId", required = "required", @onchange = "FillGradeFromItem();" })
+            </div>
+
+            <div class="form-group">
+                <label>Grade</label>
+                @Html.DropDownListFor(model => model.GradeId, Enumerable.Empty<SelectListItem>(), "Select Item Grade", new { @class = "form-control select2", @style = "width: 100%;", @Id = "GradeId" })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label>UOM</label>
+                @Html.DropDownListFor(model => model.UOMId, (IEnumerable<SelectListItem>)(ViewBag.UOM), "Select UOM", new { @class = "form-control select2", @style = "width: 100%;", @Id = "UOMId", required = "required" })
+            </div>
+
+            <div class="form-group">
+                <label>Required Date</label>
+                @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Required Date", required = "required", @type = "date", @pattern = "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))", @Id = "RequiredDate" } })
+            </div>
+
+            <div class="form-group">
+                <label>Order Qty</label>
+                @Html.EditorFor(model => model.RequiredQty, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Required Qty", @Id = "RequiredQty", required = "required" } })
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Reuest Price</label>
+                @Html.EditorFor(model => model.RequiredPrice, new { htmlAttributes = new { @class = "form-control decimal", @Id = "RequiredPrice", placeholder = "Required Price (Rs)", required = "required" } })
+            </div>
+
+            <div class="form-group">
+                <label>&nbsp;</label><br>
+                <div class="btn btn-group">
+                    <button type="submit" class="btn btn-primary" onclick="AddItems(this, event);">Add Item</button>
+                    <button type="reset" class="btn btn-success">&nbsp;Reset &nbsp;&nbsp;</button>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function AddItems(ctrl, event) {
+        event.preventDefault();
+
+        if ($('#CategoryId option:selected').val() == "")
+        {
+            $("#CategoryId").focus();
+            bootbox.alert('Please select item category.');
+        }
+        else if ($('#ItemId option:selected').val() == "")
+        {
+            $("#ItemId").focus();
+            bootbox.alert('Please select item.');
+        }
+        else if ($('#GradeId option:selected').val() == "")
+        {
+            $("#GradeId").focus();
+            bootbox.alert('Please item grade.');
+        }
+        else if ($('#UOMId option:selected').val() == "") {
+            $("#UOMId").focus();
+            bootbox.alert('Please select UOM.');
+        }
+        else if ($('#RequiredDate').val() == "") {
+            $("#RequiredDate").focus();
+            bootbox.alert('Please select required date.');
+        }
+        else if ($('#RequiredQty').val() == "" || $('#RequiredQty').val() <= 0) {
+            $("#RequiredQty").focus();
+            bootbox.alert('Please enter valid required qty.');
+        }
+        else if ($('#RequiredPrice').val() == "" || $('#RequiredPrice').val() <= 0) {
+            $("#RequiredPrice").focus();
+            bootbox.alert('You entered valid required price.');
+        }
+        else
+        {
+            $.ajax({
+                url: '@Url.Action("PartialRequiredItem", "CustomerRequirment")',
+                type: "POST",
+                data: $("form").serialize(),
+                success: function (result) {
+                    $("#divPartialView").html(result);
+                }
+            });
+        }
+    }
+
+
+    function FillItemsFormCategory() {
+        var CategoryId = $('#CategoryId').val();
+
+        $.ajax({
+            url: '@Url.Action("getItemsFromCategory", "CustomerRequirment")',
+            type: "POST",
+            dataType: "JSON",
+            data: { CategoryId: CategoryId },
+            success: function (result) {
+                $("#ItemId").html(""); // clear before appending new list
+                $("#ItemId").append($('<option></option>').val(null).html("Select Item(s)"));
+                $.each(result, function (i, item) {
+                    $("#ItemId").append(
+                        $('<option></option>').val(item.value).html(item.text));
+                });
+            }
+        });
+    }
+
+
+    function FillGradeFromItem() {
+        var ItemId = $('#ItemId').val();
+
+        $.ajax({
+            url: '@Url.Action("getGradeFromItem", "CustomerRequirment")',
+            type: "POST",
+            dataType: "JSON",
+            data: { ItemId: ItemId },
+            success: function (result) {
+                $("#GradeId").html(""); // clear before appending new list
+                $("#GradeId").append($('<option></option>').val(null).html("Select Item Grade"));
+                $.each(result, function (i, item) {
+                    $("#GradeId").append(
+                        $('<option></option>').val(item.value).html(item.text));
+                });
+            }
+        });
+    }
+</script>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LockLayout.cshtml";
+}
+
+       <!-- User name -->
+<div class="lockscreen-name">Anush Mauranga</div>
+<!-- START LOCK SCREEN ITEM -->
+<div class="lockscreen-item">
+    <!-- lockscreen image -->
+    <div class="lockscreen-image">
+        <img src="@Url.Content("~/Content/adminlte/")img/user.png" alt="User Image">
+    </div>
+    <!-- /.lockscreen-image -->
+    <!-- lockscreen credentials (contains the form) -->
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "lockscreen-credentials" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+
+        @Html.Hidden("returnUrl", (object)ViewBag.ReturnUrl)
+
+        <div class="input-group">
+            <input type="hidden" class="form-control" name="Username" value="">
+            <input type="password" class="form-control" placeholder="password" name="Password" autocomplete="off">
+            <div class="input-group-btn">
+                <button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+            </div>
+        </div>
+    }
+    <!-- /.lockscreen credentials -->
+</div>

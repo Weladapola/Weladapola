@@ -1,0 +1,49 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BTCD | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Load css files -->
+    @Styles.Render("~/bundles/css")
+
+    <!-- iCheck -->
+    @Styles.Render("~/Content/iCheck-square")
+
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="../../index2.html"><b>B</b>usiness  <b>To</b> Customer </a>
+        </div>
+        <!-- /.login-logo -->
+         @RenderBody()
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+   
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 3 -->
+    @Scripts.Render("~/bundles/jquery")
+    <!-- Bootstrap 3.3.7 -->
+    @Scripts.Render("~/bundles/bootstrap")
+    <!-- iCheck --><!-- iCheck -->
+    @Scripts.Render("~/bundles/iCheck")
+    
+    <script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  });
+    </script>
+</body>
+</html>
+

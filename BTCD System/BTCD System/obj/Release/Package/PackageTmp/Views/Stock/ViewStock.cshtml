@@ -1,0 +1,143 @@
+﻿@model IEnumerable<BTCD_System.Models.StockM>
+@using BTCD_System.Models;
+@using BTCD_System.Common
+
+@{
+    ViewBag.Title = "Stock Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+         Stock Details
+        <small>Optional description</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Transaction</a></li>
+        <li class="active">Stock Details</li>
+    </ol>
+    <style>
+        form {
+            display: inline;
+        }
+    </style>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+
+
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12 btn-container-right">
+                    <div class="btn-group">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                        {
+                            <button type="submit" class="btn btn-warning"> Cancel  </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Stock Details</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-xs-12">
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="Stock" class="datatable display nowrap"  style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>Item Name</th>
+                                        <th style="display: none;">Location</th>
+                                        <th style="display: none;">Owner</th>
+                                        <th style="display: none;">Grade</th>
+                                        <th style="display: none;">Quantity</th>
+                                        <th>Unit Price (Rs)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (StockM Stock in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @using (@Html.BeginForm("Create", "Request", new { StockId = Stock.StockId }, FormMethod.Post))
+                                                {
+                                                    <button type="submit" class="btn btn-success btn-xs btn-flat">Add Bid</button>
+                                                }
+                                            </td>
+                                            <td> @Stock.ItemName</td>
+                                            <td> @Stock.Location</td>
+                                            <td> @Stock.StockOwner</td>
+                                            <td> @Stock.Grade</td>
+                                            <td> @Stock.RemainQuantity</td>
+                                            <td> @Stock.UnitPrice</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    <!-- /.box -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+@if (TempData["Message"] != null)
+{
+    MessageBox UserMessage = (MessageBox)TempData["Message"];
+    @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+}
+
+<script>
+
+
+    var table = $('#Stock').DataTable({
+        "columnDefs": [
+          {
+              "targets": [2],
+              "visible": true,
+              "searchable": false
+          },
+          {
+              "targets": [3],
+              "visible": true,
+              "searchable": false
+          },
+          {
+              "targets": [4],
+              "visible": true,
+              "searchable": false
+          },
+          {
+              "targets": [5],
+              "visible": true,
+              "searchable": false
+          }
+        ],
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true
+    });
+</script>

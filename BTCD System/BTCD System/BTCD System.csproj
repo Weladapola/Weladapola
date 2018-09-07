@@ -186,6 +186,7 @@
     <Content Include="Content\Images\Category\fruits.jpg" />
     <Content Include="Content\Images\Category\meat.jpg" />
     <Content Include="Content\Images\Category\vegetable.jpg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Images\pageload.gif" />
     <Content Include="Images\Preloader_2.gif" />
     <Content Include="Content\adminlte\img\user.png" />
@@ -1786,6 +1787,12 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\BTCD.pubxml" />
     <None Include="Properties\PublishProfiles\EMS.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

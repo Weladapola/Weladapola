@@ -65,12 +65,13 @@
                                 <tr>
                                     <th>View</th>                                    
                                     <th>Item Name</th>
-                                    <th style="display: none;">Location</th>
-                                    <th style="display: none;">Owner</th>
-                                    <th style="display: none;">Grade</th>
-                                    <th style="display: none;">Quantity</th>
+                                    <th>Location</th>
+                                    <th>Owner</th>
+                                    <th>Grade</th>
+                                    <th>Quantity</th>
                                     <th>Remaninig Quantity</th>
                                     <th>Unit Price (Rs)</th>
+                                    <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,6 +91,7 @@
                                         <td> @Stock.Quantity</td>
                                         <td> @Stock.RemainQuantity</td>
                                         <td> @Stock.UnitPrice</td>
+                                        <td> @Stock.Description</td>
                                     </tr>
                                 }
                             </tbody>

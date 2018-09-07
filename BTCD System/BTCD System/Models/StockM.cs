@@ -33,5 +33,9 @@ namespace BTCD_System.Models
         public DateTime CreatedDate { get; set; }
         public string Location { get; set; }
         public string StockOwner { get; set; }
+
+        // Anuradha Added Comment Field
+        public string Description { get; set; }
+        public int NoOfBids { get; set; }
     }
 }

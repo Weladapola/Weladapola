@@ -79,3 +79,24 @@ E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD Syste
 E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
 E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
 E:\Projects Personal\OneDrive\Business2Customer.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\csc.exe
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\vbc.exe
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\BTCD System.dll.config
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\BTCD System.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\BTCD System.pdb
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
+E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb

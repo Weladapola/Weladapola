@@ -182,7 +182,7 @@ namespace BTCD_System.BTCD_DL.Transaction
 
         public string SaveStock(StockM StockM, out string StockNo)
         {
-            p = new SqlParameter[9];
+            p = new SqlParameter[10];
 
             try
             {
@@ -204,6 +204,8 @@ namespace BTCD_System.BTCD_DL.Transaction
                 p[7].Direction = ParameterDirection.Output;
                 p[8] = new SqlParameter("@ERRMSG", SqlDbType.VarChar, 400);
                 p[8].Direction = ParameterDirection.Output;
+                p[9] = new SqlParameter("@Description", SqlDbType.VarChar);
+                p[9].Value = StockM.Description;
 
 
                 SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spInsertStockD", p);
@@ -247,6 +249,8 @@ namespace BTCD_System.BTCD_DL.Transaction
                         CreatedDate = DateTime.Parse(reader["CreatedDate"].ToString()),
                         Location = reader["LocationName"].ToString(),
                         StockOwner = reader["NickName"].ToString(),
+                        Description = reader["Description"].ToString(),
+                        NoOfBids = int.Parse(reader["NoOfBids"].ToString())
                     });
                 }
                 return lstStock;
@@ -312,7 +316,8 @@ namespace BTCD_System.BTCD_DL.Transaction
                         UnitPrice = decimal.Parse(reader["UnitPrice"].ToString()),
                         CreatedDate = DateTime.Parse(reader["CreatedDate"].ToString()),
                         Location = reader["LocationName"].ToString(),
-                        StockOwner = reader["NickName"].ToString()
+                        StockOwner = reader["NickName"].ToString(),
+                        Description = reader["Description"].ToString()
                     });
                 }
                 return lstStock;

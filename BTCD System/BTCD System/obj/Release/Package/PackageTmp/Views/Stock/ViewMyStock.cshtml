@@ -72,6 +72,7 @@
                                     <th>Remaninig Quantity</th>
                                     <th>Unit Price (Rs)</th>
                                     <th>Description</th>
+                                    <th>No Of Bids</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,6 +93,7 @@
                                         <td> @Stock.RemainQuantity</td>
                                         <td> @Stock.UnitPrice</td>
                                         <td> @Stock.Description</td>
+                                        <td> @Stock.NoOfBids</td>
                                     </tr>
                                 }
                             </tbody>
@@ -137,5 +139,19 @@
         },
         responsive: true
     });
+
+
+    $(document).ready(function () {
+        $('#MyStock tr').each(function () {
+            $this = $(this);
+
+            var NoOfBids = parseFloat($this.find("td:eq(9)").text());
+            
+            if(NoOfBids > 0)
+            {
+                $this.css({ 'background-color': '#2ecc71' })
+            }
+        })
+    })
 </script>
 

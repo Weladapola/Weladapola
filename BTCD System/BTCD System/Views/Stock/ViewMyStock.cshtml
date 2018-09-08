@@ -139,5 +139,19 @@
         },
         responsive: true
     });
+
+
+    $(document).ready(function () {
+        $('#MyStock tr').each(function () {
+            $this = $(this);
+
+            var NoOfBids = parseFloat($this.find("td:eq(9)").text());
+            
+            if(NoOfBids > 0)
+            {
+                $this.css({ 'background-color': '#2ecc71' })
+            }
+        })
+    })
 </script>
 

@@ -20,5 +20,6 @@ namespace BTCD_System.Models
         public string RequestedBy { get; set; }
         public string StockCreatedBy { get; set; }
         public decimal RemainQty { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

@@ -1,0 +1,181 @@
+﻿@model BTCD_System.Models.BidsM
+@using BTCD_System.Common
+
+@{
+    ViewBag.Title = "Request - Update Request";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Update Request
+        @*<small>Optional description</small>*@
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Request</a></li>
+        <li class="active">Bid</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Your Page Content Here -->
+    @using (Html.BeginForm("UpdateRequest", "Request", FormMethod.Post, new { @Id = "frmRequest" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">&nbsp;Save&nbsp;&nbsp;</button>
+                            <button type="reset" class="btn btn-success">&nbsp;Reset&nbsp;&nbsp;</button>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Cancel", "Request")'"> Cancel  </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Stock Details</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Code</label>
+                            @Html.EditorFor(model => model.ItemCode, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Item Code", disabled = "disabled" } })
+                            @Html.HiddenFor(Model => Model.ItemId)
+                            @Html.HiddenFor(Model => Model.StockId)
+                            @Html.HiddenFor(Model => Model.GradeId)
+                            @Html.HiddenFor(Model => Model.LocationId)
+                        </div>
+
+                        <div class="form-group">
+                            <label>Item Description</label>
+                            @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Item Name", disabled = "disabled" } })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+                            @Html.DropDownListFor(model => model.LocationId, (IEnumerable<SelectListItem>)(ViewBag.Location), "Select Location", new { @class = "form-control select2", @style = "width: 100%;", disabled = "disabled" })
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Grade</label>
+                            @Html.DropDownListFor(model => model.GradeId, (IEnumerable<SelectListItem>)(ViewBag.Grade), "Select Item Grade", new { @class = "form-control select2", @style = "width: 100%;", disabled = "disabled" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>UOM</label>
+                            @Html.DropDownListFor(model => model.UOMId, (IEnumerable<SelectListItem>)(ViewBag.UOM), "Select UOM", new { @class = "form-control select2", @style = "width: 100%;", disabled = "disabled" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Unit Price</label>
+                            @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Unit Price (Rs)", disabled = "disabled" } })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Quantity", disabled = "disabled" } })
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">My Request</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Order Qty</label>
+                            @Html.EditorFor(model => model.RequestedQty, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Order Qty", required = "required" } })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Reuest Price</label>
+                            @Html.EditorFor(model => model.RequestedPrice, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Request Price (Rs)", required = "required" } })
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Required Date</label>
+                            @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Request Date", required = "required", @type = "date", @pattern = "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))", @Id = "RequiredDate" } })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+
+
+</section>
+<!-- /.content -->
+
+@if (TempData["Message"] != null)
+{
+    MessageBox UserMessage = (MessageBox)TempData["Message"];
+    @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+}
+
+
+
+
+<script>
+    $(".decimal").keypress(function (e) {
+        var keyCode = (e.which) ? e.which : e.keyCode;
+        if ((keyCode >= 48 && keyCode <= 57) || (keyCode == 8))
+            return true;
+        else if (keyCode == 46) {
+            var curVal = document.activeElement.value;
+            if (curVal != null && curVal.trim().indexOf('.') == -1)
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
+    });
+
+</script>

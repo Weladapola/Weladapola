@@ -34,15 +34,17 @@ namespace BTCD_System.BTCD_DL.Transaction
                 {
                     lstRequest.Add(new RequestT
                     {
-                      RequirementId = int.Parse(reader["RequirementId"].ToString()),
-                      StockId = int.Parse(reader["StockId"].ToString()),
-                      ItemId = int.Parse(reader["ItemId"].ToString()),
-                      ItemCode = reader["ItemCode"].ToString(),
-                      ItemName = reader["Description"].ToString(),
-                      RequiredDate = Convert.ToDateTime(reader["RequiredDate"].ToString()),
-                      RequiredPrice = Convert.ToDecimal(reader["RequiredPrice"].ToString()),
-                      RequiredQty   = Convert.ToDecimal(reader["RequiredQty"].ToString()),
-                      CreatedBy  = reader["CreatedBy"].ToString(),
+                        RequirementId = int.Parse(reader["RequirementId"].ToString()),
+                        StockId = int.Parse(reader["StockId"].ToString()),
+                        ItemId = int.Parse(reader["ItemId"].ToString()),
+                        ItemCode = reader["ItemCode"].ToString(),
+                        ItemName = reader["Description"].ToString(),
+                        RequiredDate = Convert.ToDateTime(reader["RequiredDate"].ToString()),
+                        RequiredPrice = Convert.ToDecimal(reader["RequiredPrice"].ToString()),
+                        RequiredQty = Convert.ToDecimal(reader["RequiredQty"].ToString()),
+                        RemainQty = Convert.ToDecimal(reader["RemainQty"].ToString()),
+                        TotalPrice = Convert.ToDecimal(reader["TotalPrice"].ToString()),
+                        CreatedBy = reader["CreatedBy"].ToString(),
                     });
                 }
 
@@ -81,7 +83,7 @@ namespace BTCD_System.BTCD_DL.Transaction
                 return lstRequest;
             }
         }
-        
+
 
         public string SaveRequest(BidsM Bid, out string RequestNo)
         {
@@ -132,7 +134,7 @@ namespace BTCD_System.BTCD_DL.Transaction
             {
                 p[0] = new SqlParameter("@RequirementId", SqlDbType.Int);
                 p[0].Value = RequirementId;
-               
+
                 SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spAccept", p);
 
             }

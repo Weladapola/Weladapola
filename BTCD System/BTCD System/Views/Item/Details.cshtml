@@ -21,7 +21,53 @@
 
 <!-- Main content -->
 <section class="content">
+    <div class="row">
+        @using (Html.BeginForm("Details", "Item", FormMethod.Post))
+        {
+            <div class="col-md-3 form-group">
+                <label style="color:white">English Name</label>
 
+                <div class="form-inline">
+                    <input type="text" id="txtEnglishDescription" class="form-control" onkeyup="startText();" name="SinghalaName" />
+                    <button class="btn btn-info" id="btnSerchEnglish">Serch</button>
+                    <input type="hidden" value="2" name="laLanguageId" />
+                </div>
+
+                @*<input type="text" id="txtEnglishDescription2" class="form-control" style="font-size:large" name="EnglishName2" disabled="disabled" />*@
+            </div>
+        }
+
+        @using (Html.BeginForm("Details", "Item", FormMethod.Post))
+        {
+            <div class="col-md-3 form-group">
+                <label style="color:white">Sinhala Name</label>
+
+                <div class="form-inline">
+                    <input type="text" id="txtSinghalaDescription" class="SinghalaUnicode form-control" onkeyup="startText();" name="SinghalaName" />
+                    <button class="btn btn-info" id="btnSerchSinhala">Serch</button>
+                    <input type="hidden" value="1" name="laLanguageId" />
+                </div>
+
+                <input type="text" id="txtSinghalaDescription2" class="SinghalaUnicode form-control" style="font-size:large" name="SinghalaName2" disabled="disabled" />
+            </div>
+        }
+
+        @using (Html.BeginForm("Details", "Item", FormMethod.Post))
+        {
+            <div class="col-md-3 form-group">
+                <label style="color:white">Tamil Name</label>
+
+                <div class="form-inline">
+                    <input type="text" id="txtTamilDescription" class="TamilUnicode form-control" onkeyup="startText();" name="SinghalaName" />
+                    <button class="btn btn-info" id="btnSerchSinhala">Serch</button>
+                    <input type="hidden" value="3" name="laLanguageId" />
+                </div>
+
+                <input type="text" id="txtTamilDescription2" class="TamilUnicode form-control" style="font-size:large" name="SinghalaName2" disabled="disabled" />
+            </div>
+        }       
+    
+    </div>
 
     @{ int count = 0; bool IsRow = true; }
 
@@ -59,4 +105,14 @@
 
 </section>
 <!-- /.content -->
+
+<script>
+    $(document).ready(function () {
+        $("#btnSerchSinhala").click(function () {
+            $.ajax({
+                
+            })
+        })
+    })
+</script>
 

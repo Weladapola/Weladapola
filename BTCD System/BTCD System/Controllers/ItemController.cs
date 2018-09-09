@@ -43,6 +43,16 @@ namespace BTCD_System.Controllers
         }
 
         [Authorize(Roles = "Create-Stock")]
+        [HttpPost]
+        [ActionName("Details")]
+        public ActionResult DetailsByItemSinghlaName(string SinghalaName,int laLanguageId)
+        {
+            lstItem = new clsM_Item().GetItemsBySinghalaName(SinghalaName, laLanguageId);
+
+            return View(lstItem);
+        }
+
+        [Authorize(Roles = "Create-Stock")]
         public ActionResult CreateStock(int ID)
         {
             StockM stock = new StockM();

@@ -44,6 +44,32 @@ namespace BTCD_System.BTCD_DL.Master
             }
         }
 
+        public List<ItemM> GetItemsBySinghalaName(string singhalaName,int laLanguageId)
+        {
+            lstItem = new List<ItemM>();
+            p = new SqlParameter[2];
+
+            p[0] = new SqlParameter("@SinghalaName", SqlDbType.VarChar) { Value = singhalaName };
+            p[1] = new SqlParameter("@laLanguageId", SqlDbType.Int) { Value = laLanguageId };
+
+            using (reader = SqlHelper.ExecuteReader(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spSelectItemByCategorySinhalaName", p))
+            {
+                while (reader.Read())
+                {
+                    lstItem.Add(new ItemM
+                    {
+                        ItemId = int.Parse(reader["ItemId"].ToString()),
+                        CategoryId = int.Parse(reader["CategoryId"].ToString()),
+                        ItemCode = reader["ItemCode"].ToString(),
+                        ItemName = reader["ItemName"].ToString(),
+                        Description = reader["Description"].ToString()
+                    });
+                }
+
+                return lstItem;
+            }
+        }
+
 
 
         public List<AutoComplete> GetItemsByCateroryId(int category)

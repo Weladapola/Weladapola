@@ -9,7 +9,8 @@ namespace BTCD_System
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery/jquery.min.js"));
+                        "~/Scripts/jquery/jquery.min.js",
+                        "~/Scripts/CustomJS/SinghalaUnicode.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery/jquery.validate.min.js",
@@ -41,6 +42,9 @@ namespace BTCD_System
                      "~/Content/datatables/dataTables.rowReorder.min.js",
                      "~/Content/datatables/dataTables.responsive.min.js"));
 
+            bundles.Add(new ScriptBundle("~/unicode/SinghalaUnicode").Include(
+                        "~/Scripts/CustomJS/SinghalaUnicode.js"));
+
             bundles.Add(new StyleBundle("~/bundles/css").Include(
             "~/Content/bootstrap/css/bootstrap.min.css",
             "~/Content/datatables/jquery.dataTables.min.css",
@@ -61,7 +65,7 @@ namespace BTCD_System
             bundles.Add(new StyleBundle("~/Content/iCheck-square").Include(
                 "~/Content/plugins/square/blue.css"));
 
-
+            
         }
     }
 }

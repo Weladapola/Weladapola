@@ -13,6 +13,7 @@ namespace BTCD_System.Models
         public string ItemName { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+        public string SinghalaDescription { get; set; }
 
     }
 }

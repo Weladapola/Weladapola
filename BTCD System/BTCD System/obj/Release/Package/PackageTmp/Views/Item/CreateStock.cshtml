@@ -58,7 +58,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Item Code</label>
-                            @Html.EditorFor(model => model.ItemCode, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Item Code" , disabled = "disabled" } })
+                            @Html.EditorFor(model => model.ItemCode, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Item Code", disabled = "disabled" } })
                             @Html.HiddenFor(Model => Model.ItemId)
                         </div>
 
@@ -72,7 +72,7 @@
                             @Html.DropDownListFor(model => model.LocationId, (IEnumerable<SelectListItem>)(ViewBag.Location), "Select Location", new { @class = "form-control select2", @style = "width: 100%;", required = "required" })
                         </div>
 
-                       
+
                     </div>
 
                     <div class="col-md-4">
@@ -105,6 +105,11 @@
                             @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })
                         </div>
 
+                        @*<div class="form-group">
+                            <label>Singhala Description</label>
+                            <input type="text" id="txtSinghalaDescription" class="SinghalaUnicode form-control" onkeyup="startText();"  name="box2"/>
+                            <input type="text" id="txtSinghalaDescription2" class="SinghalaUnicode form-control" name="box2" />
+                        </div>*@
                     </div>
 
 
@@ -143,3 +148,6 @@
     });
 
 </script>
+
+
+

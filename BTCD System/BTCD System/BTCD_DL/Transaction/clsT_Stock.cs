@@ -220,6 +220,67 @@ namespace BTCD_System.BTCD_DL.Transaction
             }
         }
 
+        public string UpdateStock(StockM StockM, out string StockNo)
+        {
+            p = new SqlParameter[11];
+
+            try
+            {
+                p[0] = new SqlParameter("@ItemId", SqlDbType.Int);
+                p[0].Value = StockM.ItemId;
+                p[1] = new SqlParameter("@EmployeeCode", SqlDbType.VarChar, 50);
+                p[1].Value = StockM.EmployeeCode;
+                p[2] = new SqlParameter("@LocationId", SqlDbType.Int);
+                p[2].Value = StockM.LocationId;
+                p[3] = new SqlParameter("@GradeId", SqlDbType.Int);
+                p[3].Value = StockM.GradeId;
+                p[4] = new SqlParameter("@Quantity", SqlDbType.Decimal);
+                p[4].Value = StockM.Quantity;
+                p[5] = new SqlParameter("@UOMId", SqlDbType.Int);
+                p[5].Value = StockM.UOMId;
+                p[6] = new SqlParameter("@UnitPrice", SqlDbType.Decimal);
+                p[6].Value = StockM.UnitPrice;
+                p[7] = new SqlParameter("@Result", SqlDbType.VarChar, 400);
+                p[7].Direction = ParameterDirection.Output;
+                p[8] = new SqlParameter("@ERRMSG", SqlDbType.VarChar, 400);
+                p[8].Direction = ParameterDirection.Output;
+                p[9] = new SqlParameter("@Description", SqlDbType.VarChar);
+                p[9].Value = StockM.Description;
+                p[10] = new SqlParameter("@StockId", SqlDbType.VarChar);
+                p[10].Value = StockM.StockId;
+
+                SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spUpdateStockD", p);
+
+                StockNo = p[7].Value.ToString();
+
+                return p[8].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string CopyStock(string StockNo)
+        {
+            p = new SqlParameter[2];
+
+            try
+            {
+                p[0] = new SqlParameter("@StockId", SqlDbType.VarChar);
+                p[0].Value = StockNo;
+                p[1] = new SqlParameter("@Result", SqlDbType.VarChar, 400);
+                p[1].Direction = ParameterDirection.Output;
+
+                SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spCopyStockD", p);
+                return p[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public List<StockM> GetStockByUserCode(string EmployeeCode)
         {
@@ -283,6 +344,7 @@ namespace BTCD_System.BTCD_DL.Transaction
                         UnitPrice = decimal.Parse(reader["UnitPrice"].ToString()),
                         CreatedDate = DateTime.Parse(reader["CreatedDate"].ToString()),
                         Location = reader["LocationName"].ToString(),
+                        Description = reader["Description"].ToString(),
                         StockOwner = reader["NickName"].ToString()
                     };
                 }

@@ -86,6 +86,45 @@ namespace BTCD_System.Controllers
 
         }
 
+        public ActionResult UpdateRequest()
+        {
+            BidsM Bids = new BidsM();
+            Bids.RequestedBy = commonFunctions.GetTransactionEmployeeCode();
+            TryUpdateModel(Bids);
+
+            if (ModelState.IsValid)
+            {
+
+
+                ErrorMsg = clsT_Bids.SaveRequest(Bids, out RequestNo);
+
+
+                if (!string.IsNullOrEmpty(ErrorMsg))
+                {
+                    TempData["Message"] = new MessageBox { CssClassName = ".alert-danger", Title = "Error!", Message = "Transaction was rollback.Try again." };
+
+                    ViewBag.Location = getLocation();
+                    ViewBag.Grade = GetItemGrade(Bids.ItemId);
+                    ViewBag.UOM = getUOM();
+
+                    return RedirectToAction("Create", Bids.StockId);
+                }
+                else
+                {
+
+                    ViewBag.Location = getLocation();
+                    ViewBag.Grade = GetItemGrade(Bids.StockId);
+                    ViewBag.UOM = getUOM();
+
+                    TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Request No: " + RequestNo };
+
+                    return RedirectToAction("ViewStock", "Stock");
+                }
+            }
+
+            return View();
+
+        }
 
         [Authorize(Roles = "View-Request")]
         [HttpPost]
@@ -100,6 +139,23 @@ namespace BTCD_System.Controllers
 
             return View(lstRequest);
         }
+
+        [Authorize(Roles = "View-Request")]
+        [HttpPost]
+        public ActionResult CopyStock(string stockId)
+        {
+            string result = "";
+            if (stockId != string.Empty)
+            {
+                result = clsT_Stock.CopyStock(stockId);
+            }
+
+            //lstStock = new clsT_Stock().GetStockByUserCode(commonFunctions.GetTransactionEmployeeCode());
+
+            TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Stock No: " + result + "- Successfully Added to Tommorrow" };
+            return RedirectToAction("ViewMyStock", "Stock");
+        }
+
 
         [Authorize(Roles = "Payment - Confirm Payment")]
         //[HttpPost]

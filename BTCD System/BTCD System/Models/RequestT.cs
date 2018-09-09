@@ -19,5 +19,6 @@ namespace BTCD_System.Models
         public decimal Payment { get; set; }
         public string RequestedBy { get; set; }
         public string StockCreatedBy { get; set; }
+        public decimal RemainQty { get; set; }
     }
 }

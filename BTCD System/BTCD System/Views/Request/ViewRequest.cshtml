@@ -67,6 +67,7 @@
                                     <th style="display: none;">Stock Id</th>
                                     <th>Item </th>
                                     <th>Item Name</th>
+                                    <th>Remain Qty</th>
                                     <th>Required Date</th>
                                     <th>Required Qty</th>
                                     <th>Required Price (Rs)</th>
@@ -81,6 +82,7 @@
                                         <td style="display: none;" class="clsStockId"> @Request.StockId</td>
                                         <td> @Request.ItemId</td>
                                         <td> @Request.ItemName</td>
+                                        <td> @Request.RemainQty</td>
                                         <td> @Request.RequiredDate.ToString("yyyy-MM-dd")</td>
                                         <td> @Request.RequiredQty</td>
                                         <td> @Request.RequiredPrice</td>
@@ -183,17 +185,22 @@
               "searchable": false
           },
           {
-              "targets": [3],
-              "visible": true,
-              "searchable": false
-          },
-          {
               "targets": [4],
               "visible": true,
               "searchable": false
           },
           {
               "targets": [5],
+              "visible": true,
+              "searchable": false
+          },
+          {
+              "targets": [6],
+              "visible": true,
+              "searchable": false
+          },
+          {
+              "targets": [7],
               "visible": true,
               "searchable": false
           }

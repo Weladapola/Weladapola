@@ -2046,6 +2046,8 @@
     <Content Include="Views\CustomerRequirment\View.cshtml" />
     <Content Include="Views\CustomerRequirment\ViewCustomerRequirments.cshtml" />
     <Content Include="Views\Request\ViewPendingPayment.cshtml" />
+    <Content Include="Views\Request\Update.cshtml" />
+    <Content Include="Views\Item\EditStock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

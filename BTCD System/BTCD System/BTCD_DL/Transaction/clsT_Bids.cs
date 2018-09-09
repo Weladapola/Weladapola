@@ -111,7 +111,7 @@ namespace BTCD_System.BTCD_DL.Transaction
                 p[9].Direction = ParameterDirection.Output;
 
 
-                SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spInsertRequirmentD", p);
+                SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spUpdateRequirmentD", p);
 
                 RequestNo = p[8].Value.ToString();
 

@@ -114,7 +114,68 @@ namespace BTCD_System.Controllers
         }
 
 
+        [Authorize(Roles = "Create-Stock")]
+        [HttpPost]
+        public ActionResult UpdateStock_POST()
+        {
+            StockM stock = new StockM();
 
+            TryUpdateModel(stock);
+
+            if (ModelState.IsValid)
+            {
+                stock.EmployeeCode = commonFunctions.GetTransactionEmployeeCode();
+
+                ErrorMsg = clsT_Stock.UpdateStock(stock, out StockNo);
+
+
+                if (!string.IsNullOrEmpty(ErrorMsg))
+                {
+                    TempData["Message"] = new MessageBox { CssClassName = ".alert-danger", Title = "Error!", Message = "Your Stock No: " + StockNo + "-" + ErrorMsg };
+
+                    ViewBag.Location = getLocation();
+                    ViewBag.Grade = GetItemGrade(stock.ItemId);
+                    ViewBag.UOM = getUOM();
+
+                    return View("EditStock");
+                }
+                else
+                {
+
+                    ViewBag.Location = getLocation();
+                    ViewBag.Grade = GetItemGrade(stock.ItemId);
+                    ViewBag.UOM = getUOM();
+
+                    TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Stock No: " + StockNo + "- Successfully Updated"};
+                    return View("EditStock");
+                    //return RedirectToAction("UpdateStock", stock.ItemId);
+                }
+            }
+
+            return View();
+        }
+
+        [Authorize(Roles = "Create-Stock")]
+        [HttpPost]
+     
+        public ActionResult EditStock(string stockId)
+        {
+            
+            StockM stock = new StockM();
+            
+            if (stockId != string.Empty)
+            {
+                stock = clsT_Stock.GetStockDetailByStockId(int.Parse(stockId));
+            }
+
+            ViewBag.Location = getLocation();
+            ViewBag.Grade = GetItemGrade(stock.ItemId);
+            ViewBag.UOM = getUOM();
+
+            return View(stock);
+        }
+
+     
 
         [NonAction]
         private List<SelectListItem> getLocation(string SelectedItem = null, string DisabledItem = null)

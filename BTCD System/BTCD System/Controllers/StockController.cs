@@ -22,6 +22,8 @@ namespace BTCD_System.Controllers
             return View(lstStock);
         }
 
+      
+
         [Authorize(Roles = "View-All-Stock")]
         public ActionResult ViewStock()
         {
@@ -37,6 +39,8 @@ namespace BTCD_System.Controllers
 
             return View(lstStock);
         }
+
+        
 
     }
 }

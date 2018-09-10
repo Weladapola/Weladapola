@@ -1,0 +1,8 @@
+﻿@font-face {
+    font-family: "iskpota";
+    src: url("/fonts/iskpota.ttf") format('');
+}
+
+.SinghalaUnicode {
+    font-family: iskpota;
+}

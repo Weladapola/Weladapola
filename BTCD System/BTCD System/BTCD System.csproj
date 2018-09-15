@@ -1760,6 +1760,7 @@
     <Content Include="Content\select2\css\select2.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Selling.jpeg" />
     <Content Include="Images\VegetablesBG.jpg" />
     <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\adminlte\js\adminlte.js" />

@@ -8,18 +8,98 @@
 }
 
 <!-- Content Header (Page header) -->
-<section class="content-header" >
-   
-    @*<h1>
-        Dashboard
-        <small>Control panel</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-    </ol>*@
+<section class="content-header">
 
-    <img src="/images/VegetablesBG.jpg" alt="Vegetables" style="width:100%;" class="img-responsive img-rounded">
+    @*<h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>*@
+
+    @*<img src="/images/VegetablesBG.jpg" alt="Vegetables" style="width:100%;" class="img-responsive img-rounded">*@
+
+    @{ int count = 0; bool IsRow = true; }
+
+    @for (int i = 0; i < 4; i += 1)
+    {
+        count++;
+
+        if (IsRow == true)
+        {
+            @:<div class="row">
+        }
+
+        if (count <= 2)
+        {
+            if (i == 0)
+            {
+                IsRow = false;
+
+                Tile tile = new Tile();
+
+                tile.Controller = "Item";
+                tile.Action = "Category";
+                tile.Value = "1";
+                tile.Subject = "Selling / විකුනුම්";
+                tile.Image = "~/Images/Selling.jpeg";
+
+                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
+            }
+            else if (i == 1)
+            {
+                IsRow = false;
+
+                Tile tile = new Tile();
+
+                tile.Controller = "Stock";
+                tile.Action = "ViewMyStock";
+                tile.Value = "1";
+                tile.Subject = "View My Stock / මාගේ විකිනීමට අති දෙ";
+                //tile.Image = CategoryM.ImageUrl;
+
+                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
+            }
+            else if (i == 2)
+            {
+                IsRow = false;
+
+                Tile tile = new Tile();
+
+                tile.Controller = "Stock";
+                tile.Action = "ViewStock";
+                tile.Value = "1";
+                tile.Subject = "View Stock / මිලදී ගෑනිමට";
+                //tile.Image = CategoryM.ImageUrl;
+
+                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
+            }
+            else if (i == 3)
+            {
+                IsRow = false;
+
+                Tile tile = new Tile();
+
+                tile.Controller = "CustomerRequirment";
+                tile.Action = "ViewCustomerRequirments";
+                tile.Value = "1";
+                tile.Subject = "View My Reqirment / මට මිලදී ගෑනිමට උවමනා දෙ";
+                //tile.Image = CategoryM.ImageUrl;
+
+                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
+            }
+
+        }
+
+        if (count == 2)
+        {
+            count = 0;
+            IsRow = true;
+            @:</div>
+        }
+    }
 </section>
 
 <!-- Main content -->

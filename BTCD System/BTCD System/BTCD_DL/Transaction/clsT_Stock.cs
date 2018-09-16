@@ -182,7 +182,7 @@ namespace BTCD_System.BTCD_DL.Transaction
 
         public string SaveStock(StockM StockM, out string StockNo)
         {
-            p = new SqlParameter[10];
+            p = new SqlParameter[11];
 
             try
             {
@@ -206,6 +206,8 @@ namespace BTCD_System.BTCD_DL.Transaction
                 p[8].Direction = ParameterDirection.Output;
                 p[9] = new SqlParameter("@Description", SqlDbType.VarChar);
                 p[9].Value = StockM.Description;
+                p[10] = new SqlParameter("@AddStockUntill", SqlDbType.Date);
+                p[10].Value = StockM.CreateUntill;
 
 
                 SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spInsertStockD", p);

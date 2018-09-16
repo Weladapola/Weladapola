@@ -77,7 +77,6 @@ E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD S
 E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\BTCD System.pdb
 E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
 E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
-E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\obj\Release\BTCD System.csprojResolveAssemblyReference.cache
 E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\obj\Release\BTCD System.dll
 E:\Projects Personal\OneDrive\Weladapola\Weladapola.git\trunk\BTCD System\BTCD System\obj\Release\BTCD System.pdb

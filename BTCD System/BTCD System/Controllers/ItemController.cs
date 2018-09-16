@@ -104,7 +104,7 @@ namespace BTCD_System.Controllers
                     ViewBag.Grade = GetItemGrade(stock.ItemId);
                     ViewBag.UOM = getUOM();
 
-                    TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Stock No: " + StockNo };
+                    TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Last Stock Nos: " + StockNo };
 
                     return RedirectToAction("CreateStock", stock.ItemId);
                 }

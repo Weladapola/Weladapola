@@ -37,5 +37,7 @@ namespace BTCD_System.Models
         // Anuradha Added Comment Field
         public string Description { get; set; }
         public int NoOfBids { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime CreateUntill { get; set; }
     }
 }

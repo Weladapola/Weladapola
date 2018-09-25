@@ -8,7 +8,7 @@
 }
 
 <!-- Content Header (Page header) -->
-<section class="content-header">
+<section class="content-header" style="background:url(../images/VegetablesBG.jpg) no-repeat center center fixed; height:550px;background-size: cover">
 
     @*<h1>
             Dashboard
@@ -71,7 +71,7 @@
                 tile.Controller = "Stock";
                 tile.Action = "ViewStock";
                 tile.Value = "1";
-                tile.Subject = "View Stock / මිලදී ගෑනිමට";
+                tile.Subject = "View Stock / මිලදී ගැනීමට";
                 //tile.Image = CategoryM.ImageUrl;
 
                 Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
@@ -85,7 +85,7 @@
                 tile.Controller = "CustomerRequirment";
                 tile.Action = "ViewCustomerRequirments";
                 tile.Value = "1";
-                tile.Subject = "View My Reqirment / මට මිලදී ගෑනිමට උවමනා දෙ";
+                tile.Subject = "View My Reqirment / මට මිලදී ගැනීමට උවමනා දෙ";
                 //tile.Image = CategoryM.ImageUrl;
 
                 Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);

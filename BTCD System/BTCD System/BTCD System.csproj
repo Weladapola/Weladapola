@@ -192,6 +192,7 @@
     <Content Include="Content\Images\Category\meat.jpg" />
     <Content Include="Content\Images\Category\vegetable.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Images\LoginBG1.jpeg" />
     <Content Include="Images\pageload.gif" />
     <Content Include="Images\Preloader_2.gif" />
     <Content Include="Content\adminlte\img\user.png" />

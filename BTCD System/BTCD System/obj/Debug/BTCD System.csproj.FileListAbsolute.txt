@@ -120,3 +120,23 @@ F:\Development-personal\New folder\trunk\BTCD System\BTCD System\bin\Microsoft.C
 F:\Development-personal\New folder\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
 F:\Development-personal\New folder\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
 F:\Development-personal\New folder\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\csc.exe
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\System.Collections.Immutable.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\System.Reflection.Metadata.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\vbc.exe
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\roslyn\VBCSCompiler.exe.config
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\BTCD System.dll.config
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\BTCD System.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\BTCD System.pdb
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\Microsoft.ReportViewer.WebForms.DLL
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\bin\ReportViewerForMvc.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.csprojResolveAssemblyReference.cache
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.dll
+F:\Development-personal\weladapola\trunk\BTCD System\BTCD System\obj\Debug\BTCD System.pdb

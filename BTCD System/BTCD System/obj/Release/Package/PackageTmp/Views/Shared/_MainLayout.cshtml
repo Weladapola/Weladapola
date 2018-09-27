@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Business TO Customer Direct</title>
+    <title>Weladapola.com</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Load css files -->
@@ -44,7 +44,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
-
     @*[if lt IE 9]*@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -62,13 +61,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Select 2 -->
     @Scripts.Render("~/bundles/select2")
     <!-- Data Table -->
-    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/datatableresource/datatables")
     <!-- AdminLTE App -->
     @Scripts.Render("~/bundles/adminlte")
     <!-- JqueryValidation-->
     @Scripts.Render("~/bundles/jqueryval")
     <!-- Singhala Unicode-->
-    @Scripts.Render("~/unicode/SinghalaUnicode")    
+    @Scripts.Render("~/unicode/SinghalaUnicode")
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -91,20 +90,14 @@ desired effect
 |---------------------------------------------------------|
 -->
 @*<img src="~/Images/VegetablesBG.jpg" />*@
-<body class="hold-transition skin-blue sidebar-mini" >
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="loader"></div>
 
     <div class="wrapper">
         <!-- Main Header -->
         <header class="main-header">
-            <!-- Logo -->
-            <a href="index2.html" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>BTCD</b></span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>B2C Direct</b></span>
-            </a>
-            <div id="google_translate_element"></div>
+
+
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
@@ -112,136 +105,6 @@ desired effect
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <!-- /.messages-menu -->
-                        <!-- Notifications Menu -->
-                        @*<li class="dropdown notifications-menu">
-                                <!-- Menu toggle button -->
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-bell-o"></i>
-                                    <span class="label label-warning">10</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="header">You have 10 notifications</li>
-                                    <li>
-                                        <!-- Inner Menu: contains the notifications -->
-                                        <ul class="menu">
-                                            <li>
-                                                <!-- start notification -->
-                                                <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                                </a>
-                                            </li>
-                                            <!-- end notification -->
-                                        </ul>
-                                    </li>
-                                    <li class="footer"><a href="#">View all</a></li>
-                                </ul>
-                            </li>*@
-
-
-                        <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                @*<img src="@Url.Content(" ~/Content/adminlte/")img/user2-160x160.jpg" class="user-image" alt="User Image">*@
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                @{
-                                    if (Request.IsAuthenticated)
-                                    {
-                                        var idendity = (HttpContext.Current.User as clsPrincipal).Identity as clsIdentity;
-
-                                        @*<span class="fa fa-1x text-yellow fa-user-circle-o"></span>*@
-                                        <img src="@Url.Content("~/Content/adminlte/")img/user.png" class="user-image" alt="User Image">
-                                        <span class="hidden-xs">@Html.Raw(idendity.User.EmployeeCategory)-@Html.Raw(idendity.User.NickName)</span>
-
-                                    }
-                                    else
-                                    {
-                                        <span class="fa fa-1x text-red fa-user-times"></span>
-                                        <span class="hidden-xs">Please Login</span>
-                                    }
-                                }
-
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- The user image in the menu -->
-                                <li class="user-header">
-                                    @*<img src="@Url.Content(" ~/Content/adminlte/")img/user2-160x160.jpg" class="img-circle" alt="User Image">*@
-
-                                    @{
-                                        if (Request.IsAuthenticated)
-                                        {
-                                            var idendity = (HttpContext.Current.User as clsPrincipal).Identity as clsIdentity;
-                                            @*<span class="fa fa-5x text-yellow fa-user-circle-o"></span>*@
-                                            <img src="@Url.Content("~/Content/adminlte/")img/user.png" class="img-circle" alt="User Image">
-                                            @*<img src="@Url.Content("~/Content/adminlte/")img/user2-160x160.jpg" class="img-circle" alt="User Image">*@
-                                            <p>
-                                                @Html.Raw(idendity.User.NickName)
-                                            </p>
-                                            <p>
-                                                @Html.Raw("@" + idendity.User.Username)
-                                            </p>
-                                        }
-                                        else
-                                        {
-                                            <span class="fa fa-5x text-red fa-user-times"></span>
-                                            <h2 style="color:white">Please Log In</h2>
-                                        }
-                                    }
-
-                                    @*Anush Mauranga - Web Developer*@
-                                    <small>@*Member since Nov. 2012*@</small>
-
-                                </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    @*<div class="row">
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Followers</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Sales</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Friends</a>
-                                            </div>
-                                        </div>*@
-                                    <!-- /.row -->
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        @Html.ActionLink("Login as deferent user", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
-                                    </div>
-                                    <div class="pull-right">
-                                        @*<a href="#" class="btn btn-default btn-flat">Sign out</a>*@
-                                        @if (Request.IsAuthenticated)
-                                        {
-                                            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "LogoutForm" }))
-                                            {
-                                                @Html.AntiForgeryToken()
-                                                <a href="javascript:document.getElementById('LogoutForm').submit()" class="btn btn-default btn-flat">Log out</a>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @Html.ActionLink("Log in", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
-                                        }
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Control Sidebar Toggle Button -->
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
-                    </ul>
-
-                </div>
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
@@ -249,6 +112,13 @@ desired effect
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel (optional) -->
+                <div>
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <i class="fa fa-2x fa-circle fa-toggle-right"></i>
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                </div>
+                <div id="google_translate_element" class="pull-left"></div>
                 <div class="user-panel">
                     <div class="pull-left image">
                         @if (Request.IsAuthenticated)
@@ -258,7 +128,7 @@ desired effect
                         }
                         else
                         {
-                            <span class="fa fa-3x text-red fa-user-times"></span>
+                            <span class="fa fa-2x text-red fa-user-times"></span>
                         }
                     </div>
                     <div class="pull-left info">
@@ -267,6 +137,12 @@ desired effect
                             var idendity = (HttpContext.Current.User as clsPrincipal).Identity as clsIdentity;
                             <p>@Html.Raw(idendity.User.FirstName + " " + idendity.User.LastName)</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            @*<p>
+                                    @Html.Raw(idendity.User.NickName)
+                                </p>
+                                <p>
+                                    @Html.Raw("@" + idendity.User.Username)
+                                </p>*@
                         }
                         else
                         {
@@ -274,20 +150,43 @@ desired effect
                         }
                     </div>
                 </div>
-                <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+                <div class="user-panel">
+                    @*<div class="pull-left">
+                            @Html.ActionLink("Login as deferent user", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
+                        </div>*@
+                    <div class="pull-left">
+                        @if (Request.IsAuthenticated)
+                        {
+                            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "LogoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a href="javascript:document.getElementById('LogoutForm').submit()" class="fa fa-1x text-green fa-sign-in"></a>
+                            }
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Log in", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
+                        }
                     </div>
-                </form>
-                <!-- /.search form -->
+                </div>
+
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+
+                        <ul class="dropdown-menu">
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                             
+                                <!-- /.row -->
+                            </li>
+                            <!-- Menu Footer-->
+
+                        </ul>
+                    </li>
+
                     <li class="header">MENU</li>
                     <!-- Optionally, you can add icons to the links -->
 
@@ -378,57 +277,57 @@ desired effect
                     Anything you want
                 </div>*@
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2018 <a href="#">B2C Direct</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2018 <a href="#">Weladapola.com</a>.</strong> All rights reserved.
         </footer>
         <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane active" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+        @*<aside class="control-sidebar control-sidebar-dark">
+                        <!-- Create the tabs -->
+                        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <!-- Home tab content -->
+                            <div class="tab-pane active" id="control-sidebar-home-tab">
+                                <h3 class="control-sidebar-heading">Recent Activity</h3>
 
 
-                    @{
-//if (Request.IsAuthenticated)
-//{
-//    emsRecentActivity = commonFunctions.ReadRecentActivity();
-//}
-//else
-//{
-//    emsRecentActivity = new List<RecentActivityU>();
-//}
-                    }
+                                @{
+            //if (Request.IsAuthenticated)
+            //{
+            //    emsRecentActivity = commonFunctions.ReadRecentActivity();
+            //}
+            //else
+            //{
+            //    emsRecentActivity = new List<RecentActivityU>();
+            //}
+                                }
 
-                </div>
-                <!-- /.tab-pane -->
-                <!-- Stats tab content -->
-                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-                            <p>
-                                Some information about this general settings option
-                            </p>
+                            </div>
+                            <!-- /.tab-pane -->
+                            <!-- Stats tab content -->
+                            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                            <!-- /.tab-pane -->
+                            <!-- Settings tab content -->
+                            <div class="tab-pane" id="control-sidebar-settings-tab">
+                                <form method="post">
+                                    <h3 class="control-sidebar-heading">General Settings</h3>
+                                    <div class="form-group">
+                                        <label class="control-sidebar-subheading">
+                                            Report panel usage
+                                            <input type="checkbox" class="pull-right" checked>
+                                        </label>
+                                        <p>
+                                            Some information about this general settings option
+                                        </p>
+                                    </div>
+                                    <!-- /.form-group -->
+                                </form>
+                            </div>
+                            <!-- /.tab-pane -->
                         </div>
-                        <!-- /.form-group -->
-                    </form>
-                </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
+                    </aside>*@
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
         immediately after the control sidebar -->
@@ -534,163 +433,163 @@ desired effect
 
 
 @*<script language="JavaScript" type="text/javascript">
-<!-- Begin
-var text;
-var nVowels;
-var consonants= new Array()
-var consonantsUni= new Array()
-var vowels= new Array()
-var vowelsUni= new Array()
-var vowelModifiersUni= new Array()
-var specialConsonants= new Array()
-var specialConsonantsUni= new Array()
-var specialCharUni= new Array()
-var specialChar= new Array()
+    <!-- Begin
+    var text;
+    var nVowels;
+    var consonants= new Array()
+    var consonantsUni= new Array()
+    var vowels= new Array()
+    var vowelsUni= new Array()
+    var vowelModifiersUni= new Array()
+    var specialConsonants= new Array()
+    var specialConsonantsUni= new Array()
+    var specialCharUni= new Array()
+    var specialChar= new Array()
 
 
-    vowelsUni[0]='ඌ';    vowels[0]='oo';    vowelModifiersUni[0]='ූ';
-    vowelsUni[1]='ඕ';    vowels[1]='o\\)';    vowelModifiersUni[1]='ෝ';
-    vowelsUni[2]='ඕ';    vowels[2]='oe';    vowelModifiersUni[2]='ෝ';
-    vowelsUni[3]='ආ';    vowels[3]='aa';    vowelModifiersUni[3]='ා';
-    vowelsUni[4]='ආ';    vowels[4]='a\\)';    vowelModifiersUni[4]='ා';
-    vowelsUni[5]='ඈ';    vowels[5]='Aa';    vowelModifiersUni[5]='ෑ';
-    vowelsUni[6]='ඈ';    vowels[6]='A\\)';    vowelModifiersUni[6]='ෑ';
-    vowelsUni[7]='ඈ';    vowels[7]='ae';    vowelModifiersUni[7]='ෑ';
-    vowelsUni[8]='ඊ';    vowels[8]='ii';    vowelModifiersUni[8]='ී';
-    vowelsUni[9]='ඊ';    vowels[9]='i\\)';    vowelModifiersUni[9]='ී';
-    vowelsUni[10]='ඊ';    vowels[10]='ie';    vowelModifiersUni[10]='ී';
-    vowelsUni[11]='ඊ';    vowels[11]='ee';    vowelModifiersUni[11]='ී';
-    vowelsUni[12]='ඒ';    vowels[12]='ea';    vowelModifiersUni[12]='ේ';
-    vowelsUni[13]='ඒ';    vowels[13]='e\\)';    vowelModifiersUni[13]='ේ';
-    vowelsUni[14]='ඒ';    vowels[14]='ei';    vowelModifiersUni[14]='ේ';
-    vowelsUni[15]='ඌ';    vowels[15]='uu';    vowelModifiersUni[15]='ූ';
-    vowelsUni[16]='ඌ';    vowels[16]='u\\)';    vowelModifiersUni[16]='ූ';
-    vowelsUni[17]='ඖ';    vowels[17]='au';    vowelModifiersUni[17]='ෞ';
-    vowelsUni[18]='ඇ';    vowels[18]='/\a';    vowelModifiersUni[18]='ැ';
+        vowelsUni[0]='ඌ';    vowels[0]='oo';    vowelModifiersUni[0]='ූ';
+        vowelsUni[1]='ඕ';    vowels[1]='o\\)';    vowelModifiersUni[1]='ෝ';
+        vowelsUni[2]='ඕ';    vowels[2]='oe';    vowelModifiersUni[2]='ෝ';
+        vowelsUni[3]='ආ';    vowels[3]='aa';    vowelModifiersUni[3]='ා';
+        vowelsUni[4]='ආ';    vowels[4]='a\\)';    vowelModifiersUni[4]='ා';
+        vowelsUni[5]='ඈ';    vowels[5]='Aa';    vowelModifiersUni[5]='ෑ';
+        vowelsUni[6]='ඈ';    vowels[6]='A\\)';    vowelModifiersUni[6]='ෑ';
+        vowelsUni[7]='ඈ';    vowels[7]='ae';    vowelModifiersUni[7]='ෑ';
+        vowelsUni[8]='ඊ';    vowels[8]='ii';    vowelModifiersUni[8]='ී';
+        vowelsUni[9]='ඊ';    vowels[9]='i\\)';    vowelModifiersUni[9]='ී';
+        vowelsUni[10]='ඊ';    vowels[10]='ie';    vowelModifiersUni[10]='ී';
+        vowelsUni[11]='ඊ';    vowels[11]='ee';    vowelModifiersUni[11]='ී';
+        vowelsUni[12]='ඒ';    vowels[12]='ea';    vowelModifiersUni[12]='ේ';
+        vowelsUni[13]='ඒ';    vowels[13]='e\\)';    vowelModifiersUni[13]='ේ';
+        vowelsUni[14]='ඒ';    vowels[14]='ei';    vowelModifiersUni[14]='ේ';
+        vowelsUni[15]='ඌ';    vowels[15]='uu';    vowelModifiersUni[15]='ූ';
+        vowelsUni[16]='ඌ';    vowels[16]='u\\)';    vowelModifiersUni[16]='ූ';
+        vowelsUni[17]='ඖ';    vowels[17]='au';    vowelModifiersUni[17]='ෞ';
+        vowelsUni[18]='ඇ';    vowels[18]='/\a';    vowelModifiersUni[18]='ැ';
 
-    vowelsUni[19]='අ';    vowels[19]='a';    vowelModifiersUni[19]='';
-    vowelsUni[20]='ඇ';    vowels[20]='A';    vowelModifiersUni[20]='ැ';
-    vowelsUni[21]='ඉ';    vowels[21]='i';    vowelModifiersUni[21]='ි';
-    vowelsUni[22]='එ';    vowels[22]='e';    vowelModifiersUni[22]='ෙ';
-    vowelsUni[23]='උ';    vowels[23]='u';    vowelModifiersUni[23]='ු';
-    vowelsUni[24]='ඔ';    vowels[24]='o';    vowelModifiersUni[24]='ො';
-    vowelsUni[25]='ඓ';    vowels[25]='I';    vowelModifiersUni[25]='ෛ';
-    nVowels=26;
+        vowelsUni[19]='අ';    vowels[19]='a';    vowelModifiersUni[19]='';
+        vowelsUni[20]='ඇ';    vowels[20]='A';    vowelModifiersUni[20]='ැ';
+        vowelsUni[21]='ඉ';    vowels[21]='i';    vowelModifiersUni[21]='ි';
+        vowelsUni[22]='එ';    vowels[22]='e';    vowelModifiersUni[22]='ෙ';
+        vowelsUni[23]='උ';    vowels[23]='u';    vowelModifiersUni[23]='ු';
+        vowelsUni[24]='ඔ';    vowels[24]='o';    vowelModifiersUni[24]='ො';
+        vowelsUni[25]='ඓ';    vowels[25]='I';    vowelModifiersUni[25]='ෛ';
+        nVowels=26;
 
-    specialConsonantsUni[0]='ං'; specialConsonants[0]=/\\n/g;
-    specialConsonantsUni[1]='ඃ'; specialConsonants[1]=/\\h/g;
-    specialConsonantsUni[2]='ඞ'; specialConsonants[2]=/\\N/g;
-    specialConsonantsUni[3]='ඍ'; specialConsonants[3]=/\\R/g;
-    //special characher Repaya
-    specialConsonantsUni[4]='ර්'+'\u200D'; specialConsonants[4]=/R/g;
-    specialConsonantsUni[5]='ර්'+'\u200D'; specialConsonants[5]=/\\r/g;
+        specialConsonantsUni[0]='ං'; specialConsonants[0]=/\\n/g;
+        specialConsonantsUni[1]='ඃ'; specialConsonants[1]=/\\h/g;
+        specialConsonantsUni[2]='ඞ'; specialConsonants[2]=/\\N/g;
+        specialConsonantsUni[3]='ඍ'; specialConsonants[3]=/\\R/g;
+        //special characher Repaya
+        specialConsonantsUni[4]='ර්'+'\u200D'; specialConsonants[4]=/R/g;
+        specialConsonantsUni[5]='ර්'+'\u200D'; specialConsonants[5]=/\\r/g;
 
-    consonantsUni[0]='ඬ'; consonants[0]='nnd';
-    consonantsUni[1]='ඳ'; consonants[1]='nndh';
-    consonantsUni[2]='ඟ'; consonants[2]='nng';
-    consonantsUni[3]='ථ'; consonants[3]='Th';
-    consonantsUni[4]='ධ'; consonants[4]='Dh';
-    consonantsUni[5]='ඝ'; consonants[5]='gh';
-    consonantsUni[6]='ඡ'; consonants[6]='Ch';
-    consonantsUni[7]='ඵ'; consonants[7]='ph';
-    consonantsUni[8]='භ'; consonants[8]='bh';
-    consonantsUni[9]='ශ'; consonants[9]='sh';
-    consonantsUni[10]='ෂ'; consonants[10]='Sh';
-    consonantsUni[11]='ඥ'; consonants[11]='GN';
-    consonantsUni[12]='ඤ'; consonants[12]='KN';
-    consonantsUni[13]='ළු'; consonants[13]='Lu';
-    consonantsUni[14]='ද'; consonants[14]='dh';
-    consonantsUni[15]='ච'; consonants[15]='ch';
-    consonantsUni[16]='ඛ'; consonants[16]='kh';
-    consonantsUni[17]='ත'; consonants[17]='th';
+        consonantsUni[0]='ඬ'; consonants[0]='nnd';
+        consonantsUni[1]='ඳ'; consonants[1]='nndh';
+        consonantsUni[2]='ඟ'; consonants[2]='nng';
+        consonantsUni[3]='ථ'; consonants[3]='Th';
+        consonantsUni[4]='ධ'; consonants[4]='Dh';
+        consonantsUni[5]='ඝ'; consonants[5]='gh';
+        consonantsUni[6]='ඡ'; consonants[6]='Ch';
+        consonantsUni[7]='ඵ'; consonants[7]='ph';
+        consonantsUni[8]='භ'; consonants[8]='bh';
+        consonantsUni[9]='ශ'; consonants[9]='sh';
+        consonantsUni[10]='ෂ'; consonants[10]='Sh';
+        consonantsUni[11]='ඥ'; consonants[11]='GN';
+        consonantsUni[12]='ඤ'; consonants[12]='KN';
+        consonantsUni[13]='ළු'; consonants[13]='Lu';
+        consonantsUni[14]='ද'; consonants[14]='dh';
+        consonantsUni[15]='ච'; consonants[15]='ch';
+        consonantsUni[16]='ඛ'; consonants[16]='kh';
+        consonantsUni[17]='ත'; consonants[17]='th';
 
-    consonantsUni[18]='ට'; consonants[18]='t';
-    consonantsUni[19]='ක'; consonants[19]='k';
-    consonantsUni[20]='ඩ'; consonants[20]='d';
-    consonantsUni[21]='න'; consonants[21]='n';
-    consonantsUni[22]='ප'; consonants[22]='p';
-    consonantsUni[23]='බ'; consonants[23]='b';
-    consonantsUni[24]='ම'; consonants[24]='m';
-    consonantsUni[25]='‍ය'; consonants[25]='\\u005C' + 'y';
-    consonantsUni[26]='‍ය'; consonants[26]='Y';
-    consonantsUni[27]='ය'; consonants[27]='y';
-    consonantsUni[28]='ජ'; consonants[28]='j';
-    consonantsUni[29]='ල'; consonants[29]='l';
-    consonantsUni[30]='ව'; consonants[30]='v';
-    consonantsUni[31]='ව'; consonants[31]='w';
-    consonantsUni[32]='ස'; consonants[32]='s';
-    consonantsUni[33]='හ'; consonants[33]='h';
-    consonantsUni[34]='ණ'; consonants[34]='N';
-    consonantsUni[35]='ළ'; consonants[35]='L';
-    consonantsUni[36]='ඛ'; consonants[36]='K';
-    consonantsUni[37]='ඝ'; consonants[37]='G';
-    consonantsUni[38]='ඨ'; consonants[38]='T';
-    consonantsUni[39]='ඪ'; consonants[39]='D';
-    consonantsUni[40]='ඵ'; consonants[40]='P';
-    consonantsUni[41]='ඹ'; consonants[41]='B';
-    consonantsUni[42]='ෆ'; consonants[42]='f';
-    consonantsUni[43]='ඣ'; consonants[43]='q';
-    consonantsUni[44]='ග'; consonants[44]='g';
-    //last because we need to ommit this in dealing with Rakaransha
-    consonantsUni[45]='ර'; consonants[45]='r';
+        consonantsUni[18]='ට'; consonants[18]='t';
+        consonantsUni[19]='ක'; consonants[19]='k';
+        consonantsUni[20]='ඩ'; consonants[20]='d';
+        consonantsUni[21]='න'; consonants[21]='n';
+        consonantsUni[22]='ප'; consonants[22]='p';
+        consonantsUni[23]='බ'; consonants[23]='b';
+        consonantsUni[24]='ම'; consonants[24]='m';
+        consonantsUni[25]='‍ය'; consonants[25]='\\u005C' + 'y';
+        consonantsUni[26]='‍ය'; consonants[26]='Y';
+        consonantsUni[27]='ය'; consonants[27]='y';
+        consonantsUni[28]='ජ'; consonants[28]='j';
+        consonantsUni[29]='ල'; consonants[29]='l';
+        consonantsUni[30]='ව'; consonants[30]='v';
+        consonantsUni[31]='ව'; consonants[31]='w';
+        consonantsUni[32]='ස'; consonants[32]='s';
+        consonantsUni[33]='හ'; consonants[33]='h';
+        consonantsUni[34]='ණ'; consonants[34]='N';
+        consonantsUni[35]='ළ'; consonants[35]='L';
+        consonantsUni[36]='ඛ'; consonants[36]='K';
+        consonantsUni[37]='ඝ'; consonants[37]='G';
+        consonantsUni[38]='ඨ'; consonants[38]='T';
+        consonantsUni[39]='ඪ'; consonants[39]='D';
+        consonantsUni[40]='ඵ'; consonants[40]='P';
+        consonantsUni[41]='ඹ'; consonants[41]='B';
+        consonantsUni[42]='ෆ'; consonants[42]='f';
+        consonantsUni[43]='ඣ'; consonants[43]='q';
+        consonantsUni[44]='ග'; consonants[44]='g';
+        //last because we need to ommit this in dealing with Rakaransha
+        consonantsUni[45]='ර'; consonants[45]='r';
 
-    specialCharUni[0]='ෲ'; specialChar[0]='ruu';
-    specialCharUni[1]='ෘ'; specialChar[1]='ru';
-    //specialCharUni[2]='්‍ර'; specialChar[2]='ra';
+        specialCharUni[0]='ෲ'; specialChar[0]='ruu';
+        specialCharUni[1]='ෘ'; specialChar[1]='ru';
+        //specialCharUni[2]='්‍ර'; specialChar[2]='ra';
 
 
-function startText() {
-    var s,r,v;
-    text = document.getElementById("txtSinghalaDescription").value;
-    //special consonents
-    for (var i=0; i<specialConsonants.length; i++){
-        text = text.replace(specialConsonants[i], specialConsonantsUni[i]);
-    }
-    //consonents + special Chars
-    for (var i=0; i<specialCharUni.length; i++){
+    function startText() {
+        var s,r,v;
+        text = document.getElementById("txtSinghalaDescription").value;
+        //special consonents
+        for (var i=0; i<specialConsonants.length; i++){
+            text = text.replace(specialConsonants[i], specialConsonantsUni[i]);
+        }
+        //consonents + special Chars
+        for (var i=0; i<specialCharUni.length; i++){
+            for (var j=0;j<consonants.length;j++){
+                s = consonants[j] + specialChar[i];
+                v = consonantsUni[j] + specialCharUni[i];
+                r = new RegExp(s, "g");
+                text = text.replace(r, v);
+            }
+        }
+        //consonants + Rakaransha + vowel modifiers
         for (var j=0;j<consonants.length;j++){
-            s = consonants[j] + specialChar[i];
-            v = consonantsUni[j] + specialCharUni[i];
+            for (var i=0;i<vowels.length;i++){
+                s = consonants[j] + "r" + vowels[i];
+                v = consonantsUni[j] + "්‍ර" + vowelModifiersUni[i];
+                r = new RegExp(s, "g");
+                text = text.replace(r, v);
+            }
+            s = consonants[j] + "r";
+            v = consonantsUni[j] + "්‍ර";
             r = new RegExp(s, "g");
             text = text.replace(r, v);
         }
-    }
-    //consonants + Rakaransha + vowel modifiers
-    for (var j=0;j<consonants.length;j++){
-        for (var i=0;i<vowels.length;i++){
-            s = consonants[j] + "r" + vowels[i];
-            v = consonantsUni[j] + "්‍ර" + vowelModifiersUni[i];
-            r = new RegExp(s, "g");
-            text = text.replace(r, v);
+        //consonents + vowel modifiers
+        for (var i=0;i<consonants.length;i++){
+            for (var j=0;j<nVowels;j++){
+                s = consonants[i]+vowels[j];
+                v = consonantsUni[i] + vowelModifiersUni[j];
+                r = new RegExp(s, "g");
+                text = text.replace(r, v);
+            }
         }
-        s = consonants[j] + "r";
-        v = consonantsUni[j] + "්‍ර";
-        r = new RegExp(s, "g");
-        text = text.replace(r, v);
-    }
-    //consonents + vowel modifiers
-    for (var i=0;i<consonants.length;i++){
-        for (var j=0;j<nVowels;j++){
-            s = consonants[i]+vowels[j];
-            v = consonantsUni[i] + vowelModifiersUni[j];
-            r = new RegExp(s, "g");
-            text = text.replace(r, v);
+
+        //consonents + HAL
+        for (var i=0; i<consonants.length; i++){
+            r = new RegExp(consonants[i], "g");
+            text = text.replace(r, consonantsUni[i]+"්");
         }
+
+        //vowels
+        for (var i=0; i<vowels.length; i++){
+            r = new RegExp(vowels[i], "g");
+            text = text.replace(r, vowelsUni[i]);
+        }
+
+        document.getElementById("txtSinghalaDescription2").value = text;
+
     }
-
-    //consonents + HAL
-    for (var i=0; i<consonants.length; i++){
-        r = new RegExp(consonants[i], "g");
-        text = text.replace(r, consonantsUni[i]+"්");
-    }
-
-    //vowels
-    for (var i=0; i<vowels.length; i++){
-        r = new RegExp(vowels[i], "g");
-        text = text.replace(r, vowelsUni[i]);
-    }
-
-    document.getElementById("txtSinghalaDescription2").value = text;
-
-}
-</script>*@
+    </script>*@

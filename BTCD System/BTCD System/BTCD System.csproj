@@ -183,6 +183,10 @@
     <Content Include="Content\adminlte\img\credit\visa.png" />
     <Content Include="Content\bootstrap-tile\bootstraptiles.css" />
     <Content Include="Content\CustomCss\CustomeCss.css" />
+    <Content Include="Content\datatables\dataTables.responsive.min.js" />
+    <Content Include="Content\datatables\dataTables.rowReorder.min.js" />
+    <Content Include="Content\datatables\responsive.dataTables.min.css" />
+    <Content Include="Content\datatables\rowReorder.dataTables.min.css" />
     <Content Include="Content\Images\Category\fish.jpg" />
     <Content Include="Content\Images\Category\fruits.jpg" />
     <Content Include="Content\Images\Category\meat.jpg" />

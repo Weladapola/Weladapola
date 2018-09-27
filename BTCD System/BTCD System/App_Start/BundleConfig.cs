@@ -36,9 +36,9 @@ namespace BTCD_System
             bundles.Add(new ScriptBundle("~/bundles/bootbox").Include(
                    "~/Scripts/bootbox.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
+            bundles.Add(new ScriptBundle("~/datatableresource/datatables").Include(
                      "~/Content/datatables/jquery.dataTables.js",
-                     //"~/Content/datatables/dataTables.bootstrap.min.js",
+                     "~/Content/datatables/dataTables.bootstrap.min.js",
                      "~/Content/datatables/dataTables.rowReorder.min.js",
                      "~/Content/datatables/dataTables.responsive.min.js"));
 

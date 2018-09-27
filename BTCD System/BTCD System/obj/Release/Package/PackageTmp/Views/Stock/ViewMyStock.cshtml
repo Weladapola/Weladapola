@@ -125,34 +125,62 @@
 <script>
 
 
-    var table = $('#MyStock').DataTable({
-        "columnDefs": [
-          {
-              "targets": [4],
-              "visible": true,
-              "searchable": false
-          },
-          {
-              "targets": [5],
-              "visible": true,
-              "searchable": false
-          },
-          {
-              "targets": [6],
-              "visible": true,
-              "searchable": false
-          },
-          {
-              "targets": [7],
-              "visible": true,
-              "searchable": false
-          }
-        ],
-        rowReorder: {
-            selector: 'td:nth-child(4)'
-        },
-        responsive: true
-    });
+    //var table = $('#MyStock').DataTable({
+    //    "columnDefs": [
+    //         {
+    //             "targets": [1],
+    //             "visible": true,
+    //             "searchable": false
+    //         },
+    //          {
+    //              "targets": [2],
+    //              "visible": true,
+    //              "searchable": false
+    //          },
+    //      {
+    //          "targets": [4],
+    //          "visible": true,
+    //          "searchable": false
+    //      },
+    //      {
+    //          "targets": [5],
+    //          "visible": true,
+    //          "searchable": false
+    //      },
+    //      {
+    //          "targets": [6],
+    //          "visible": true,
+    //          "searchable": false
+    //      },
+    //      {
+    //          "targets": [7],
+    //          "visible": true,
+    //          "searchable": false
+    //      }
+    //    ],
+    //    rowReorder: {
+    //        selector: 'td:nth-child(4)'
+    //    },
+    //    responsive: true
+    //});
+
+    $(document).ready(function () {
+        var table = $('#MyStock').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            columnDefs: [
+            { responsivePriority: 1, targets: 0 },
+            { responsivePriority: 2, targets: 3 },
+            { responsivePriority: 2, targets: 4 },
+            { responsivePriority: 2, targets: 5 },
+            { responsivePriority: 2, targets: 6 },
+            { responsivePriority: 2, targets: 7 }
+            ],
+            responsive: true
+        });
+    })
+
 
 
     $(document).ready(function () {

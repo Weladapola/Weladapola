@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3r6LP1vFV0in9uxfgSmPzAAAAAACAAAAAAADZgAAwAAAABAAAACIBi2R0ZDpyp0hn5cJHvckAAAAAASAAACgAAAAEAAAAEOdjZDta995NlQvIATmxvogAAAAgmNd/pHEk11iKOnsdm7tsnowr18JlFi7+BTj9VDagTwUAAAAC9f9mcjsYwD7o7ACU6ZbJKs8E6g=</EncryptedPassword>
-    <_PublishTargetUrl>E:\Host\BTCD</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Host\BTCD</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">

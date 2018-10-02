@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 08:21:22</publishTime>
     </File>
     <File Include="bin/BTCD System.dll">
-      <publishTime>09/30/2018 10:31:46</publishTime>
+      <publishTime>10/02/2018 16:06:33</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/26/2018 08:21:22</publishTime>
@@ -98,7 +98,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 08:20:48</publishTime>
     </File>
     <File Include="Content/adminlte/css/AdminLTE.min.css">
-      <publishTime>10/02/2018 14:49:20</publishTime>
+      <publishTime>10/02/2018 16:02:11</publishTime>
     </File>
     <File Include="Content/adminlte/css/adminlte.min.css.map">
       <publishTime>09/26/2018 08:20:48</publishTime>
@@ -5588,9 +5588,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/27/2018 17:15:57</publishTime>
     </File>
     <File Include="Views/Shared/_MainLayout.cshtml">
-      <publishTime>10/02/2018 14:58:39</publishTime>
+      <publishTime>10/02/2018 16:15:01</publishTime>
     </File>
     <File Include="Views/Shared/_Tile.cshtml">
+      <publishTime>10/02/2018 14:59:10</publishTime>
+    </File>
+    <File Include="Views/Shared/_Tile2.cshtml">
       <publishTime>10/02/2018 14:59:10</publishTime>
     </File>
     <File Include="Views/Stock/CreateStock.cshtml">

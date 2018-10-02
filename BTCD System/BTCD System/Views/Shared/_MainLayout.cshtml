@@ -117,7 +117,7 @@ desired effect
                         using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "LogoutForm" }))
                         {
                             @Html.AntiForgeryToken()
-                            <a href="javascript:document.getElementById('LogoutForm').submit()" class="fa fa-2x text-red fa-sign-out">Sign Out</a>
+                            <a href="javascript:document.getElementById('LogoutForm').submit()" class="fa fa-2x text-red fa-sign-out"></a>
                
                         }
                     }

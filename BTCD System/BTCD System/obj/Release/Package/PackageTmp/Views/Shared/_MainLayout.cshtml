@@ -96,14 +96,36 @@ desired effect
     <div class="wrapper">
         <!-- Main Header -->
         <header class="main-header">
-
-
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>W</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Weladapola</b></span>
+            </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+               
+
+                <div class="pull-right align; padding:15px;">
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "LogoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('LogoutForm').submit()" class="fa fa-2x text-red fa-sign-out"></a>
+               
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Log in", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
+                    }
+                </div>
                 <!-- Navbar Right Menu -->
             </nav>
         </header>
@@ -112,13 +134,13 @@ desired effect
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div>
-                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                        <i class="fa fa-2x fa-circle fa-toggle-right"></i>
-                        <span class="sr-only">Toggle navigation</span>
-                    </a>
-                </div>
-                <div id="google_translate_element" class="pull-left"></div>
+                @*<div>
+                        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                            <i class="fa fa-2x fa-circle fa-toggle-right"></i>
+                            <span class="sr-only">Toggle navigation</span>
+                        </a>
+                    </div>*@
+
                 <div class="user-panel">
                     <div class="pull-left image">
                         @if (Request.IsAuthenticated)
@@ -150,25 +172,7 @@ desired effect
                         }
                     </div>
                 </div>
-                <div class="user-panel">
-                    @*<div class="pull-left">
-                            @Html.ActionLink("Login as deferent user", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
-                        </div>*@
-                    <div class="pull-left">
-                        @if (Request.IsAuthenticated)
-                        {
-                            using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "LogoutForm" }))
-                            {
-                                @Html.AntiForgeryToken()
-                                <a href="javascript:document.getElementById('LogoutForm').submit()" class="fa fa-1x text-green fa-sign-in"></a>
-                            }
-                        }
-                        else
-                        {
-                            @Html.ActionLink("Log in", "Login", "Account", null, new { @Class = "btn btn-default btn-flat" })
-                        }
-                    </div>
-                </div>
+
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
@@ -179,7 +183,7 @@ desired effect
                         <ul class="dropdown-menu">
                             <!-- Menu Body -->
                             <li class="user-body">
-                             
+
                                 <!-- /.row -->
                             </li>
                             <!-- Menu Footer-->
@@ -258,6 +262,9 @@ desired effect
                         <ul class="treeview-menu">
                             <li><a href="~/ReportsTrn/Index"><i class="fa  fa-file-text-o"></i>Reports</a></li>
                         </ul>
+                    </li>
+                    <li class="treeview">
+                        <div id="google_translate_element" class="pull-left"></div>
                     </li>
                 </ul>
                 <!-- /.sidebar-menu -->

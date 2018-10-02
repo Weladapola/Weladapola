@@ -7,8 +7,99 @@
 
 }
 
+<style>
+    .card2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+        min-height: 300px;
+        background: #fff;
+        box-shadow: 0 20px 50px rgba(0,0,0,.1);
+        border-radius: 10px;
+        transition: 0.5s;
+        margin-top: 200px;
+    }
+
+        .card2:hover {
+            box-shadow: 0 30px 70px rgba(0,0,0,.2);
+        }
+
+        .card2 .box {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+            .card2 .box .img {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+                .card2 .box .img img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+            .card2 .box h2 {
+                font-size: 20px;
+                color: #262626;
+                margin: 20px auto;
+            }
+
+                .card2 .box h2 span {
+                    font-size: 14px;
+                    background: #e91e63;
+                    color: #fff;
+                    display: inline-block;
+                    padding: 4px 10px;
+                    border-radius: 15px;
+                }
+
+            .card2 .box p {
+                color: #262626;
+            }
+
+            .card2 .box span {
+                display: inline-flex;
+            }
+
+            .card2 .box ul {
+                margin: 0;
+                padding: 0;
+            }
+
+                .card2 .box ul li {
+                    list-style: none;
+                    float: left;
+                }
+
+                    .card2 .box ul li a {
+                        display: block;
+                        color: #aaa;
+                        margin: 0 10px;
+                        font-size: 20px;
+                        transition: 0.5s;
+                        text-align: center;
+                    }
+
+                    .card2 .box ul li:hover a {
+                        color: #e91e63;
+                        transform: rotateY(360deg);
+                    }
+</style>
+
 <!-- Content Header (Page header) -->
-<section class="content-header" style="background:url(../images/VegetablesBG.jpg) no-repeat center center fixed; height:550px;background-size: cover">
+<section class="content-header">
 
     @*<h1>
             Dashboard
@@ -19,87 +110,154 @@
             <li class="active">Dashboard</li>
         </ol>*@
 
-    @*<img src="/images/VegetablesBG.jpg" alt="Vegetables" style="width:100%;" class="img-responsive img-rounded">*@
+   
 
     @{ int count = 0; bool IsRow = true; }
 
-    @for (int i = 0; i < 4; i += 1)
-    {
-        count++;
-
-        if (IsRow == true)
+        @for (int i = 0; i < 4; i += 1)
         {
-            @:<div class="row">
+            count++;
+
+            if (IsRow == true)
+            {
+                @:<div class="row">
+            }
+
+            if (count <= 4)
+            {
+                if (i == 0)
+                {
+                    IsRow = false;
+
+                    Tile tile = new Tile();
+
+                    tile.Controller = "Item";
+                    tile.Action = "Category";
+                    tile.Value = "1";
+                    tile.Subject = "Selling / විකුනුම්";
+                    //tile.Image = "~/Images/Selling.jpeg";
+
+                    Html.RenderPartial("~/Views/Shared/_Tile2.cshtml", tile);
+                }
+                else if (i == 1)
+                {
+                    IsRow = false;
+
+                    Tile tile = new Tile();
+
+                    tile.Controller = "Stock";
+                    tile.Action = "ViewMyStock";
+                    tile.Value = "1";
+                    tile.Subject = "View My Stock / මාගේ විකිනීමට අති දෙ";
+                    //tile.Image = CategoryM.ImageUrl;
+
+                    Html.RenderPartial("~/Views/Shared/_Tile2.cshtml", tile);
+                }
+                else if (i == 2)
+                {
+                    IsRow = false;
+
+                    Tile tile = new Tile();
+
+                    tile.Controller = "Stock";
+                    tile.Action = "ViewStock";
+                    tile.Value = "1";
+                    tile.Subject = "View Stock / මිලදී ගැනීමට";
+                    //tile.Body = "View Stock / මිලදී ගැනීමට";
+                    //tile.Image = CategoryM.ImageUrl;
+
+                    Html.RenderPartial("~/Views/Shared/_Tile2.cshtml", tile);
+                }
+                else if (i == 3)
+                {
+                    IsRow = false;
+
+                    Tile tile = new Tile();
+
+                    tile.Controller = "CustomerRequirment";
+                    tile.Action = "ViewCustomerRequirments";
+                    tile.Value = "1";
+                    tile.Subject = "View My Reqirment / මට මිලදී ගැනීමට උවමනා දෙ";
+
+                    //tile.Image = CategoryM.ImageUrl;
+
+                    Html.RenderPartial("~/Views/Shared/_Tile2.cshtml", tile);
+                }
+
+            }
+
+            if (count == 4)
+            {
+                count = 0;
+                IsRow = true;
+                @:</div>
+            }
         }
+    <img src="/images/VegetablesBG.jpg" alt="Vegetables" style="width:100%;" class="img-responsive img-rounded">
 
-        if (count <= 2)
-        {
-            if (i == 0)
-            {
-                IsRow = false;
+    @*<div class="form-group">
+        <div class="col col-md-3">
+            <div class="card2">
+                <div class="box">
+                    <div class="img">
+                        <img src="~/Images/Selling.jpeg">
+                    </div>
+                    <h2>Prakash Prajapati<br><span><a href="~/Item/Category">Selling / විකුනුම්</a></span></h2>
+                    <p>
+                        Description Text
+                    </p>
 
-                Tile tile = new Tile();
+                </div>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <div class="card2">
+                <div class="box">
+                    <div class="img">
+                        <img src="~/Images/Selling.jpeg">
+                    </div>
+                    <h2>Prakash Prajapati<br><span><a href="~/Stock/ViewMyStock">View My Stock / මාගේ විකිනීමට අති දෙ</a></span></h2>
+                    <p>
+                        Description Text
+                    </p>
 
-                tile.Controller = "Item";
-                tile.Action = "Category";
-                tile.Value = "1";
-                tile.Subject = "Selling / විකුනුම්";
-                tile.Image = "~/Images/Selling.jpeg";
+                </div>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <div class="card2">
+                <div class="box">
+                    <div class="img">
+                        <img src="~/Images/Selling.jpeg">
+                    </div>
+                    <h2>Prakash Prajapati<br><span><a href="~/Stock/ViewStock">View Stock / මිලදී ගැනීමට</a></span></h2>
+                    <p>
+                        Description Text
+                    </p>
 
-                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
-            }
-            else if (i == 1)
-            {
-                IsRow = false;
+                </div>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <div class="card2">
+                <div class="box">
+                    <div class="img">
+                        <img src="~/Images/Selling.jpeg">
+                    </div>
+                    <h2>Prakash Prajapati<br><span><a href="~/CustomerRequirment/ViewCustomerRequirments">View My Reqirment / මට මිලදී ගැනීමට උවමනා දෙ</a></span></h2>
+                    <p>
+                        Description Text
+                    </p>
 
-                Tile tile = new Tile();
+                </div>
+            </div>
+        </div>
+    </div>*@
 
-                tile.Controller = "Stock";
-                tile.Action = "ViewMyStock";
-                tile.Value = "1";
-                tile.Subject = "View My Stock / මාගේ විකිනීමට අති දෙ";
-                //tile.Image = CategoryM.ImageUrl;
 
-                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
-            }
-            else if (i == 2)
-            {
-                IsRow = false;
 
-                Tile tile = new Tile();
+    
 
-                tile.Controller = "Stock";
-                tile.Action = "ViewStock";
-                tile.Value = "1";
-                tile.Subject = "View Stock / මිලදී ගැනීමට";
-                //tile.Image = CategoryM.ImageUrl;
-
-                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
-            }
-            else if (i == 3)
-            {
-                IsRow = false;
-
-                Tile tile = new Tile();
-
-                tile.Controller = "CustomerRequirment";
-                tile.Action = "ViewCustomerRequirments";
-                tile.Value = "1";
-                tile.Subject = "View My Reqirment / මට මිලදී ගැනීමට උවමනා දෙ";
-                //tile.Image = CategoryM.ImageUrl;
-
-                Html.RenderPartial("~/Views/Shared/_Tile.cshtml", tile);
-            }
-
-        }
-
-        if (count == 2)
-        {
-            count = 0;
-            IsRow = true;
-            @:</div>
-        }
-    }
 </section>
 
 <!-- Main content -->

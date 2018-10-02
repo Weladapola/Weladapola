@@ -2054,6 +2054,7 @@
     <Content Include="Views\Request\ViewPendingPayment.cshtml" />
     <Content Include="Views\Request\Update.cshtml" />
     <Content Include="Views\Item\EditStock.cshtml" />
+    <Content Include="Views\Shared\_Tile2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

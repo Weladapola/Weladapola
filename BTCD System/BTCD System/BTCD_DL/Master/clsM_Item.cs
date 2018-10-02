@@ -36,7 +36,8 @@ namespace BTCD_System.BTCD_DL.Master
                         CategoryId = int.Parse(reader["CategoryId"].ToString()),
                         ItemCode = reader["ItemCode"].ToString(),
                         ItemName = reader["ItemName"].ToString(),
-                        Description = reader["Description"].ToString()
+                        Description = reader["Description"].ToString(),
+                        ImageUrl = reader["ImageUrl"].ToString()
                     });
                 }
 

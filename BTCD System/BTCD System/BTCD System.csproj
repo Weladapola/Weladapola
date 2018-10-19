@@ -192,8 +192,13 @@
     <Content Include="Content\Images\Category\meat.jpg" />
     <Content Include="Content\Images\Category\vegetable.jpg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Images\back.jpg" />
+    <Content Include="Images\back2.png" />
+    <Content Include="Images\cart.jpg" />
+    <Content Include="Images\list.png" />
     <Content Include="Images\LoginBG1.jpeg" />
     <Content Include="Images\pageload.gif" />
+    <Content Include="Images\Pallet.png" />
     <Content Include="Images\Preloader_2.gif" />
     <Content Include="Content\adminlte\img\user.png" />
     <Content Include="Content\bootstrap\css\bootstrap-confirm-delete.css" />

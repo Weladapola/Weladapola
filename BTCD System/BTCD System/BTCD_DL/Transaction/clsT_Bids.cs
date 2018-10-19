@@ -126,17 +126,19 @@ namespace BTCD_System.BTCD_DL.Transaction
         }
 
 
-        public void ApproveRequest(int RequirementId)
+        public string ApproveRequest(int RequirementId)
         {
-            p = new SqlParameter[1];
+            p = new SqlParameter[2];
 
             try
             {
                 p[0] = new SqlParameter("@RequirementId", SqlDbType.Int);
                 p[0].Value = RequirementId;
+                p[1] = new SqlParameter("@ERRMSG", SqlDbType.VarChar, 400);
+                p[1].Direction = ParameterDirection.Output;
 
                 SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spAccept", p);
-
+                return p[1].Value.ToString();
             }
             catch (Exception ex)
             {

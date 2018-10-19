@@ -222,12 +222,21 @@ namespace BTCD_System.Controllers
         [HttpPost]
         public ActionResult Accept(int RequirementId,int StockId)
         {
+            string result = "";
             if (RequirementId != 0)
             {
-                clsT_Bids.ApproveRequest(RequirementId);
+               result = clsT_Bids.ApproveRequest(RequirementId);
             }
 
-            return RedirectToAction("ViewMyStock", "Stock");
+            if (result != "")
+            {
+                TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Insufficeint stock" };
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("ViewMyStock", "Stock");
+            }
         }
 
         [HttpPost]

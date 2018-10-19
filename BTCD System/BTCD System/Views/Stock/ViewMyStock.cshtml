@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<BTCD_System.Models.StockM>
 @using BTCD_System.Models;
+@using BTCD_System.Common;
+
 @{
     ViewBag.Title = "My Stock Details";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -121,6 +123,13 @@
     </div>
 
 </section>
+
+@if (TempData["Message"] != null)
+{
+    MessageBox UserMessage = (MessageBox)TempData["Message"];
+    @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+    TempData["Message"] = null;
+}
 
 <script>
 

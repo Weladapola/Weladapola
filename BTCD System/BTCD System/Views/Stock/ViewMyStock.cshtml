@@ -35,9 +35,9 @@
             <div class="row">
                 <div class="col-lg-12 btn-container-right">
                     <div class="btn-group">
-                        @using (Html.BeginForm("ViewStock", "Stock", FormMethod.Get))
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
                         {
-                            <button type="submit" class="btn btn-warning"> Cancel  </button>
+                            <button type="submit" class="btn btn-warning"> Home  </button>
                         }
                     </div>
                 </div>
@@ -167,7 +167,7 @@
     $(document).ready(function () {
         var table = $('#MyStock').DataTable({
             rowReorder: {
-                selector: 'td:nth-child(2)'
+                selector: 'td:nth-child(4)'
             },
             columnDefs: [
             { responsivePriority: 1, targets: 0 },

@@ -156,6 +156,21 @@ namespace BTCD_System.Controllers
             return RedirectToAction("ViewMyStock", "Stock");
         }
 
+        [Authorize(Roles = "View-Request")]
+        [HttpPost]
+        public ActionResult DeleteStock(string stockId)
+        {
+            string result = "";
+            if (stockId != string.Empty)
+            {
+                result = clsT_Stock.DeleteStock(stockId);
+            }
+
+            //lstStock = new clsT_Stock().GetStockByUserCode(commonFunctions.GetTransactionEmployeeCode());
+
+            TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Stock No: " + result + "- Successfully Deleted" };
+            return RedirectToAction("ViewMyStock", "Stock");
+        }
 
         [Authorize(Roles = "Payment - Confirm Payment")]
         //[HttpPost]
@@ -262,5 +277,11 @@ namespace BTCD_System.Controllers
 
             return RedirectToAction("ViewMyStock", "Stock");
         }
+
+        public ActionResult Cancel()
+        {
+            return RedirectToAction("ViewMyStock", "Stock");
+        }
+
     }
 }

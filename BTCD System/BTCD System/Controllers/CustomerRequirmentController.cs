@@ -327,5 +327,10 @@ namespace BTCD_System.Controllers
             return View(lstCustomerRequirment);
         }
 
+
+        public ActionResult Cancel()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

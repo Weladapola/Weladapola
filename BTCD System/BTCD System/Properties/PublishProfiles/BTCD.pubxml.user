@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 08:21:22</publishTime>
     </File>
     <File Include="bin/BTCD System.dll">
-      <publishTime>10/19/2018 19:39:54</publishTime>
+      <publishTime>10/24/2018 07:01:18</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/26/2018 08:21:22</publishTime>
@@ -5585,7 +5585,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 08:21:07</publishTime>
     </File>
     <File Include="Views/Request/Create.cshtml">
-      <publishTime>09/26/2018 08:21:07</publishTime>
+      <publishTime>10/24/2018 06:45:52</publishTime>
     </File>
     <File Include="Views/Request/Update.cshtml">
       <publishTime>09/26/2018 08:21:07</publishTime>
@@ -5615,7 +5615,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/26/2018 08:21:08</publishTime>
     </File>
     <File Include="Views/Stock/ViewMyStock.cshtml">
-      <publishTime>10/19/2018 18:40:12</publishTime>
+      <publishTime>10/24/2018 06:32:15</publishTime>
     </File>
     <File Include="Views/Stock/ViewStock.cshtml">
       <publishTime>09/26/2018 08:21:08</publishTime>

@@ -68,6 +68,7 @@
                                     <th>View</th>
                                     <th>Edit</th>
                                     <th>Copy</th>
+<th>Delete</th>
                                     <th>Item Name</th>
                                     <th>Location</th>
                                     <th>Owner</th>
@@ -99,6 +100,12 @@
                                             @using (Html.BeginForm("CopyStock", "Request", new { stockId = Stock.StockId }, FormMethod.Post))
                                             {
                                                 <button type="submit" class="btn btn-danger btn-xs btn-flat">Copy Stock</button>
+                                            }
+                                        </td>
+                                        <td>
+                                            @using (Html.BeginForm("DeleteStock", "Request", new { stockId = Stock.StockId }, FormMethod.Post))
+                                            {
+                                                <button type="submit" class="btn btn-info btn-xs btn-flat">Delete Stock</button>
                                             }
                                         </td>
                                         <td> @Stock.ItemName</td>
@@ -176,7 +183,7 @@
     $(document).ready(function () {
         var table = $('#MyStock').DataTable({
             rowReorder: {
-                selector: 'td:nth-child(4)'
+                selector: 'td:nth-child(5)'
             },
             columnDefs: [
             { responsivePriority: 1, targets: 0 },
@@ -196,7 +203,7 @@
         $('#MyStock tr').each(function () {
             $this = $(this);
 
-            var NoOfBids = parseFloat($this.find("td:eq(11)").text());
+            var NoOfBids = parseFloat($this.find("td:eq(12)").text());
 
             if (NoOfBids > 0) {
                 $this.css({ 'background-color': '#2ecc71' })

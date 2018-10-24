@@ -283,6 +283,26 @@ namespace BTCD_System.BTCD_DL.Transaction
             }
         }
 
+        public string DeleteStock(string StockNo)
+        {
+            p = new SqlParameter[2];
+
+            try
+            {
+                p[0] = new SqlParameter("@StockId", SqlDbType.VarChar);
+                p[0].Value = StockNo;
+                p[1] = new SqlParameter("@Result", SqlDbType.VarChar, 400);
+                p[1].Direction = ParameterDirection.Output;
+
+                SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spDeleteStockD", p);
+                return p[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public List<StockM> GetStockByUserCode(string EmployeeCode)
         {

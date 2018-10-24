@@ -230,8 +230,8 @@ namespace BTCD_System.Controllers
 
             if (result != "")
             {
-                TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Insufficeint stock" };
-                return View();
+                TempData["Message"] = new MessageBox { CssClassName = ".alert-danger", Title = "Error!", Message = "Insufficeint stock" };
+                return View("ViewRequest", RequirementId);
             }
             else
             {

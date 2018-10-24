@@ -21,7 +21,20 @@
 
 <!-- Main content -->
 <section class="content">
-
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12 btn-container-right">
+                    <div class="btn-group">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                        {
+                            <button type="submit" class="btn btn-warning"> Home  </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @{ int count = 0; bool IsRow = true; }
 

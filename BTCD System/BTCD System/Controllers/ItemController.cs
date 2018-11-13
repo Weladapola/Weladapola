@@ -4,6 +4,7 @@ using BTCD_System.Common;
 using BTCD_System.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,6 +23,7 @@ namespace BTCD_System.Controllers
         private List<LocationM> lstLocation;
         private List<ItemGradeM> lstItemGrade;
         private List<UnitofMeasurementM> lstUnitofMeasurement;
+        private List<CategoryM> lstCategories;
 
         private string StockNo = "";
         private string ErrorMsg = "";
@@ -42,10 +44,100 @@ namespace BTCD_System.Controllers
             return View(lstItem);
         }
 
+        //[Authorize(Roles = "Create-Stock")]
+        public ActionResult DetailsGrid()
+        {
+            ViewBag.ItemCategory = GetCategories();
+
+            return View();
+        }
+
+        #region Comment
+        //[HttpPost]
+        //public ActionResult AddItem()
+        //{
+        //    HttpFileCollectionBase files = Request.Files;
+
+        //    for (int i = 0; i < files.Count; i++)
+        //    {
+        //        //string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";  
+        //        //string filename = Path.GetFileName(Request.Files[i].FileName);  
+
+        //        HttpPostedFileBase file = files[i];
+        //        string fname;
+
+        //        // Checking for Internet Explorer  
+        //        if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+        //        {
+        //            string[] testfiles = file.FileName.Split(new char[] { '\\' });
+        //            fname = testfiles[testfiles.Length - 1];
+        //        }
+        //        else
+        //        {
+        //            fname = file.FileName;
+        //        }
+
+        //        // Get the complete folder path and store the file inside it.  
+        //        fname = Path.Combine(Server.MapPath("~/Uploads/"), fname);
+        //        file.SaveAs(fname);
+        //    }
+        //        //string msg = clsM_Item.CreateItem(ItemCategory, ItemCode, ItemName, ItemDescription, ItemSinhalaDescription, ItemTamilDescription);
+
+        //        //if (!string.IsNullOrEmpty(msg))
+        //        //{
+        //        //    TempData["Message"] = new MessageBox { CssClassName = "alert-danger", Title = "Error!", Message = msg };
+        //        //}
+        //        //else
+        //        //{                
+        //        //    TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Item Created. Code: " + ItemCode };
+        //        //}
+        //        return Content("msg");
+        //}
+
+        #endregion
+
+        [HttpPost]
+        public ActionResult AddItem(ItemM item)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(item.ImageUpload.FileName);
+            string extension = Path.GetExtension(item.ImageUpload.FileName);
+            string fName = item.ItemCode + extension;
+            item.ImageUrl = @"~\Content\Images\Vegetables\" + fName;            
+
+            string msg = clsM_Item.CreateItem(item.CategoryId, item.ItemCode, item.ItemName, item.Description, item.SinghalaDescription, item.TamilDescription,item.ImageUrl);
+
+            if (!string.IsNullOrEmpty(msg))
+            {
+                TempData["Message"] = new MessageBox { CssClassName = "alert-danger", Title = "Error!", Message = msg };
+            }
+            else
+            {
+                item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/Vegetables"), fName));
+                TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Item Created. Code: " + item.ItemCode };
+            }
+
+            return View();
+        }
+
+        [NonAction]
+        private List<SelectListItem> GetCategories()
+        {
+            ListItem = new List<SelectListItem>();
+            lstCategories = new clsM_Category().GetAllCategories();
+
+            foreach (CategoryM Category in lstCategories)
+            {
+                ListItem.Add(new SelectListItem { Value = Category.CategoryId.ToString(), Text = Category.CategoryName });
+
+            }
+
+            return ListItem;
+        }
+
         [Authorize(Roles = "Create-Stock")]
         [HttpPost]
         [ActionName("Details")]
-        public ActionResult DetailsByItemSinghlaName(string SinghalaName,int laLanguageId)
+        public ActionResult DetailsByItemSinghlaName(string SinghalaName, int laLanguageId)
         {
             lstItem = new clsM_Item().GetItemsBySinghalaName(SinghalaName, laLanguageId);
 
@@ -146,7 +238,7 @@ namespace BTCD_System.Controllers
                     ViewBag.Grade = GetItemGrade(stock.ItemId);
                     ViewBag.UOM = getUOM();
 
-                    TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Stock No: " + StockNo + "- Successfully Updated"};
+                    TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Your Stock No: " + StockNo + "- Successfully Updated" };
                     return View("EditStock");
                     //return RedirectToAction("UpdateStock", stock.ItemId);
                 }
@@ -157,12 +249,12 @@ namespace BTCD_System.Controllers
 
         [Authorize(Roles = "Create-Stock")]
         [HttpPost]
-     
+
         public ActionResult EditStock(string stockId)
         {
-            
+
             StockM stock = new StockM();
-            
+
             if (stockId != string.Empty)
             {
                 stock = clsT_Stock.GetStockDetailByStockId(int.Parse(stockId));
@@ -175,7 +267,7 @@ namespace BTCD_System.Controllers
             return View(stock);
         }
 
-     
+
 
         [NonAction]
         private List<SelectListItem> getLocation(string SelectedItem = null, string DisabledItem = null)

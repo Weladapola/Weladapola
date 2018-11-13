@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Microsoft.Reporting.WebForms;
 using BTCD_System.Models;
 using BTCD_System.BTCD_DLL.Reports;
+using BTCD_System.BTCD_DL.Reports;
 
 namespace BTCD_System.Controllers
 {
@@ -18,8 +19,8 @@ namespace BTCD_System.Controllers
         [Authorize(Roles = "Reports - Reports")]
         public ActionResult Index()
         {
-            List<Reports> lstEmsReportses; //= reports.SelectAllReportslist();
-            return View();
+            List<Reports> lstEmsReportses = reports.SelectAllReportslist();
+            return View(lstEmsReportses);
         }
 
         [HttpPost]
@@ -30,6 +31,9 @@ namespace BTCD_System.Controllers
             reportViewer.SizeToReportContent = true;
             reportViewer.Width = Unit.Pixel(1100);
             reportViewer.Height = Unit.Pixel(525);
+
+            IReportServerCredentials irsc = new CustomReportCredentials("weladapola-001", "Test@123", "ifc");
+            reportViewer.ServerReport.ReportServerCredentials = irsc;
 
             reportViewer.ServerReport.ReportServerUrl = new Uri(serverPath);
             reportViewer.ServerReport.ReportPath = @"/" + reportFolder + @"/" + reportName ;

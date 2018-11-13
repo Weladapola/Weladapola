@@ -121,6 +121,24 @@ namespace BTCD_System.BTCD_DL.Master
             }
         }
 
+        public string CreateItem(int ItemCategory, string ItemCode, string ItemName, string ItemDescription, string ItemSinhalaDescription, string ItemTamilDescription,string imgUrl)
+        {
+            p = new SqlParameter[8];
+            p[0] = new SqlParameter("@CategoryId", SqlDbType.Int) { Value = ItemCategory };
+            p[1] = new SqlParameter("@ItemCode", SqlDbType.VarChar) { Value = ItemCode };
+            p[2] = new SqlParameter("@ItemName", SqlDbType.VarChar) { Value = ItemName };
+            p[3] = new SqlParameter("@Description", SqlDbType.VarChar) { Value = ItemDescription };
+            p[4] = new SqlParameter("@ImageUrl", SqlDbType.VarChar) { Value = imgUrl };
+            p[5] = new SqlParameter("@SinghalaDescription", SqlDbType.VarChar) { Value = ItemSinhalaDescription };
+            p[6] = new SqlParameter("@TamilDescription", SqlDbType.VarChar) { Value = ItemTamilDescription };
+            p[7] = new SqlParameter("@msg", SqlDbType.VarChar,100);
+            p[7].Direction = ParameterDirection.Output;
+
+            SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spInsertItem", p);
+
+            return p[7].Value.ToString();
+        }
+
         #endregion
     }
 }

@@ -14,6 +14,9 @@ namespace BTCD_System.Models
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string SinghalaDescription { get; set; }
+        public string TamilDescription { get; set; }
+
+        public HttpPostedFileBase ImageUpload { get; set; }
 
     }
 }

@@ -1,0 +1,164 @@
+﻿@model IEnumerable<BTCD_System.Models.ItemM>
+@using BTCD_System.Common;
+
+@{
+    ViewBag.Title = "DetailsGrid";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Item
+        <small>Item Details</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Master</a></li>
+        <li class="active">Item</li>
+    </ol>
+</section>
+
+<section class="content">
+    <form id="frmAddItem" method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary" >&nbsp;Add Item&nbsp;&nbsp;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (TempData["Message"] != null)
+            {
+                var message = (MessageBox)TempData["Message"];
+            <center>
+                <div id="Message" class="alert @message.CssClassName" style="width:50%">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>@message.Title</strong>
+                    <p>@message.Message</p>
+                </div>
+            </center>
+        }
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">Item Category</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Category</label>
+                            @Html.DropDownList("ItemCategory", null, "Select Category", new { @class = "form-control select2", @Id = "CategoryId", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Code</label>
+                            <input type="text" class="form-control" id="ItemCode" name="ItemCode" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Name</label>
+                            <input type="text" class="form-control" id="ItemName" name="ItemName" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Description</label>
+                            <input type="text" class="form-control" id="ItemDescription" name="Description" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Sinhala Description</label>
+                            <input type="text" class="form-control" id="ItemSinhalaDescription" name="SinghalaDescription" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Item Tamil Description</label>
+                            <input type="text" class="form-control" id="ItemTamilDescription" name="TamilDescription" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" class="form-control" id="Image" name="ImageUpload" required="required" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+@*<script type="text/javascript">
+    function AddItems(ctrl, event) {
+        event.preventDefault();
+        var _ItemCategory = $("#CategoryId").val();
+        var _ItemCode = $("#ItemCode").val();
+        var _ItemName = $("#ItemName").val();
+        var _ItemDescription = $("#ItemDescription").val();
+        var _ItemSinhalaDescription = $("#ItemSinhalaDescription").val();
+        var _ItemTamilDescription = $("#ItemTamilDescription").val();
+
+        var _ImageUpload = $("#Image").get(0);
+        var _files = _ImageUpload.files;
+
+        // Create FormData object
+        var _fileData = new FormData();
+
+        // Looping over all files and add it to FormData object
+        for (var i = 0; i < _files.length; i++) {
+            _fileData.append(_files[i].name, _files[i]);
+        }
+
+
+        $('.loader').show();
+
+        $.ajax({
+            url: '@Url.Action("AddItem","Item")',
+            type: "POST",
+            contentType: false, // Not to set any content header
+            processData: false, // Not to process data
+            data: _fileData,
+            success: function (result) {
+                $('.loader').fadeOut();
+                location.reload();
+            }
+        });
+    }
+</script>*@
+
+<script>
+    function AjaxPost(formData) {
+        $('.loader').show();
+
+        var ajaxConfig = {
+            type: "post",
+            url: "/Item/AddItem",
+            data: new FormData(formData),
+            success: function (result) {
+                $('.loader').fadeOut();
+                //location.reload();
+            }
+            
+        }
+
+        ajaxConfig["contentType"] = false;
+        ajaxConfig["processData"] = false;
+
+        $.ajax(ajaxConfig);
+        //return false;
+    }
+</script>

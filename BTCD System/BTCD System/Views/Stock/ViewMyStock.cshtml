@@ -133,9 +133,12 @@
 
 @if (TempData["Message"] != null)
 {
-    MessageBox UserMessage = (MessageBox)TempData["Message"];
-    @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
-    TempData["Message"] = null;
+    if (!IsPost)
+    {
+        MessageBox UserMessage = (MessageBox)TempData["Message"];
+        @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+        TempData.Remove("Message");
+    }
 }
 
 <script>

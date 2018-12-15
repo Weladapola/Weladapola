@@ -1,0 +1,81 @@
+﻿@model List<BTCD_System.Models.ItemM>
+
+
+<table id="tblItemDetails" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>English Description</th>
+            <th>Sinhala Description</th>
+            <th>Tamil Description</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <form name="frmEdit" action="~/Item/ItemEdit" method="post">
+                        <button class="edit btn btn-warning btn-sm glyphicon glyphicon-cog" title="Edit"></button>
+                        <input type="hidden" value=@item.ItemId name="ItemID" />
+                    </form>
+
+                    <button class="delete btn btn-danger btn-sm glyphicon glyphicon-trash" title="Delete"></button>
+                </td>
+                <td class="ItemId">
+                    @item.ItemId
+                </td>
+                <td>
+                    @item.ItemName
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.SinghalaDescription
+                </td>
+                <td>
+                    @item.TamilDescription
+                </td>
+                <td>
+                    <img src="@Url.Content(@item.ImageUrl)" class="info-box-icon">
+                    @*@item.ImageUrl*@
+                </td>
+            </tr>}
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $('#tblItemDetails').on('click', '.delete', function () {
+        var curRow = $(this).closest("tr");
+        var itemId = curRow.find('td:eq(1)').text();
+
+        bootbox.confirm({
+            message: "Confirm to delete",
+            buttons: {
+                confirm: {
+                    label: 'Confirm',
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: 'Cancel',
+                    className: 'btn-info'
+                }
+            },
+            callback: function (result) {
+                if (result == true) {
+                    //alert(itemId);
+                    deleteItem(itemId);
+                }
+            }
+        });
+    })
+
+    //$(".delete").click(function () {
+
+    //});
+
+</script>

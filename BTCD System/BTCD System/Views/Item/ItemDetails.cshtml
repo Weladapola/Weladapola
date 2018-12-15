@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "ItemDetails";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Item
+        <small>Item Details</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Master</a></li>
+        <li class="active">Item</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("DetailsGrid", "Item")'">&nbsp;Add Item&nbsp;&nbsp;</button>
+                        <button type="submit" class="btn btn-warning">&nbsp;Home&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Item Category</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Item Category</label>
+                        @Html.DropDownList("ItemCategory", null, "Select Category", new { @class = "form-control select2", @Id = "CategoryId", Name = "CategoryId", @required = "required"})
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Item Details</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div id="ItemGridPartial">
+                            @{
+                                BTCD_System.BTCD_DL.Master.clsM_Item  item = new BTCD_System.BTCD_DL.Master.clsM_Item();
+                                Html.RenderPartial("_PartialItemDetailGrid", item.GetItemsByCategories(0));
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    $("#CategoryId").change(function () {
+        $('.loader').show();
+        var catId = $("#CategoryId").val();
+        $.ajax({
+            type: "post",
+            url: "/Item/ItemDetails",
+            data: { _CategoryId: catId },
+            success: function (result) {
+                $("#ItemGridPartial").html();
+                $("#ItemGridPartial").html(result);
+
+                $(".table").DataTable({
+                    "columnDefs": [{
+                        "defaultContent": "-",
+                        "targets": "_all"
+                    }]
+                });
+            },
+            complete: function (result) {
+                $('.loader').fadeOut();
+            }
+        })
+    });
+    
+
+    function deleteItem(itemId){
+        var catId = $("#CategoryId").val();        
+
+        $.ajax({
+            type: "post",
+            url: "/Item/ItemDelete",
+            data: { _CategoryId: catId, _ItemID: itemId.trim()},
+            success: function (result) {
+                $("#ItemGridPartial").html();
+                $("#ItemGridPartial").html(result);
+
+                $(".table").DataTable({
+                    "columnDefs": [{
+                        "defaultContent": "-",
+                        "targets": "_all"
+                    }]
+                });
+            },
+            complete: function (result) {
+                $('.loader').fadeOut();
+            }
+        });
+    };
+</script>

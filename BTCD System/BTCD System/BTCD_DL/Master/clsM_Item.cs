@@ -37,11 +37,38 @@ namespace BTCD_System.BTCD_DL.Master
                         ItemCode = reader["ItemCode"].ToString(),
                         ItemName = reader["ItemName"].ToString(),
                         Description = reader["Description"].ToString(),
-                        ImageUrl = reader["ImageUrl"].ToString()
+                        ImageUrl = reader["ImageUrl"].ToString(),
+                        SinghalaDescription = reader["SinghalaDescription"].ToString(),
+                        TamilDescription = reader["TamilDescription"].ToString()
                     });
                 }
 
                 return lstItem;
+            }
+        }
+
+        public ItemM GetItemByCategoryID(int CategoryId)
+        {
+            ItemM _item = new ItemM();
+            p = new SqlParameter[1];
+            p[0] = new SqlParameter("@CategoryId", SqlDbType.Int) { Value = CategoryId };
+
+            using (reader = SqlHelper.ExecuteReader(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spSelectItemByCategory", p))
+            {
+                while (reader.Read())
+                {
+                    _item = new ItemM
+                    {
+                        ItemId = int.Parse(reader["ItemId"].ToString()),
+                        CategoryId = int.Parse(reader["CategoryId"].ToString()),
+                        ItemName = reader["ItemName"].ToString(),
+                        Description = reader["Description"].ToString(),
+                        ImageUrl = reader["ImageUrl"].ToString(),
+                        SinghalaDescription = reader["SinghalaDescription"].ToString(),
+                        TamilDescription = reader["TamilDescription"].ToString()
+                    };
+                }
+                return _item;
             }
         }
 
@@ -70,8 +97,6 @@ namespace BTCD_System.BTCD_DL.Master
                 return lstItem;
             }
         }
-
-
 
         public List<AutoComplete> GetItemsByCateroryId(int category)
         {
@@ -113,7 +138,10 @@ namespace BTCD_System.BTCD_DL.Master
                         CategoryId = int.Parse(reader["CategoryId"].ToString()),
                         ItemCode = reader["ItemCode"].ToString(),
                         ItemName = reader["ItemName"].ToString(),
-                        Description = reader["Description"].ToString()
+                        Description = reader["Description"].ToString(),
+                        ImageUrl = reader["ImageUrl"].ToString(),
+                        SinghalaDescription = reader["SinghalaDescription"].ToString(),
+                        TamilDescription = reader["TamilDescription"].ToString()
                     };
                 }
 
@@ -137,6 +165,48 @@ namespace BTCD_System.BTCD_DL.Master
             SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spInsertItem", p);
 
             return p[7].Value.ToString();
+        }
+
+        public string DeleteItem(int ItemID)
+        {
+            p = new SqlParameter[2];
+            p[0] = new SqlParameter("@ItemId", SqlDbType.Int) { Value = ItemID };
+            p[1] = new SqlParameter("@msg", SqlDbType.VarChar, 100);
+            p[1].Direction = ParameterDirection.Output;
+
+            SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spItemDelete", p);
+
+            return p[1].Value.ToString();
+        }
+
+        public string UpdateItemById(int ItemID,string ItemName, string ItemDescription, string ItemSinhalaDescription, string ItemTamilDescription, string imgUrl)
+        {
+            p = new SqlParameter[7];
+            p[0] = new SqlParameter("@ItemID", SqlDbType.Int) { Value = ItemID };
+            p[1] = new SqlParameter("@ItemName", SqlDbType.VarChar) { Value = ItemName };
+            p[2] = new SqlParameter("@Description", SqlDbType.VarChar) { Value = ItemDescription };
+            p[3] = new SqlParameter("@ImageUrl", SqlDbType.VarChar) { Value = imgUrl };
+            p[4] = new SqlParameter("@SinghalaDescription", SqlDbType.VarChar) { Value = ItemSinhalaDescription };
+            p[5] = new SqlParameter("@TamilDescription", SqlDbType.VarChar) { Value = ItemTamilDescription };
+            p[6] = new SqlParameter("@msg", SqlDbType.VarChar, 100);
+            p[6].Direction = ParameterDirection.Output;
+
+            SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spUpdateItem", p);
+
+            return p[6].Value.ToString();
+        }
+
+        public string UpdateItemImageUrlId(int ItemID, string imgUrl)
+        {
+            p = new SqlParameter[3];
+            p[0] = new SqlParameter("@ItemID", SqlDbType.Int) { Value = ItemID };            
+            p[1] = new SqlParameter("@ImageUrl", SqlDbType.VarChar) { Value = imgUrl };            
+            p[2] = new SqlParameter("@msg", SqlDbType.VarChar, 100);
+            p[2].Direction = ParameterDirection.Output;
+
+            SqlHelper.ExecuteNonQuery(clsConnectionString.getConnectionString(), CommandType.StoredProcedure, "spUpdateItemImageUrl", p);
+
+            return p[2].Value.ToString();
         }
 
         #endregion

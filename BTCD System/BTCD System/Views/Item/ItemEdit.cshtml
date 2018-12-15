@@ -1,0 +1,197 @@
+﻿@model BTCD_System.Models.ItemM
+
+@{
+    ViewBag.Title = "ItemEdit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<section class="content-header">
+    <h1>
+        Item
+        <small>Item Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Master</a></li>
+        <li class="active">Item</li>
+    </ol>
+</section>
+
+
+
+<section class="content">
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="btn-group">
+                        <button type="submit" id="btnSubmit" class="btn btn-primary">&nbsp;Submit&nbsp;&nbsp;</button>
+                        <button type="submit" id="btnHome" class="btn btn-warning" onclick="location.href='@Url.Action("ItemDetails", "Item")'">&nbsp;Home&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Item Details</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Item ID</label>
+                        @Html.TextBoxFor(model => model.ItemId, new { @class = "form-control", disabled = "disabled", @Id = "txtItemID", Name = "nmItemID", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.ItemId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Item Code</label>
+                        @Html.TextBoxFor(model => model.ItemCode, new { @class = "form-control", disabled = "disabled", @Id = "txtItemCode", Name = "nmItemCode", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.ItemCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Item Name</label>
+                        @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control", @Id = "txtItemName", Name = "nmItemName", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Description</label>
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @Id = "txtDescription", Name = "nmDescription", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Sinhala Description</label>
+                        @Html.TextBoxFor(model => model.SinghalaDescription, new { @class = "form-control", @Id = "txtSinghalaDescription", Name = "nmSinghalaDescription" })
+                        @Html.ValidationMessageFor(model => model.SinghalaDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Tamil Description</label>
+                        @Html.TextBoxFor(model => model.TamilDescription, new { @class = "form-control", @Id = "txtTamilDescription", Name = "nmTamilDescription" })
+                        @Html.ValidationMessageFor(model => model.TamilDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @{ var imgurl = Model.ImageUrl;}
+                        <img src="@Url.Content(imgurl)" class="info-box-icon" alt="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <form method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
+                            <label>Image</label>
+                            <input type="hidden" value=@Model.ItemId name="ItemId" />
+                            <input type="hidden" value=@Model.ItemName name="ItemName" />
+                            <input type="file" class="form-control" id="Image" name="ImageUpload" />
+                            <input type="submit" class="btn btn-primary" value="Update Image" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }*@
+
+<script type="text/javascript">
+    $('#btnSubmit').click(function () {
+        var ItemID = $('#txtItemID').val();
+        var ItemName = $('#txtItemName').val();
+        var Description = $('#txtDescription').val();
+        var SinghalaDescription = $('#txtSinghalaDescription').val();
+        var TamilDescription = $('#txtTamilDescription').val();
+
+
+        $.ajax({
+            type: "post",
+            url: "/Item/ItemEditByID",
+            data: {
+                _ItemID: ItemID, _ItemName: ItemName,
+                _Description: Description, _SinghalaDescription: SinghalaDescription, _TamilDescription: TamilDescription
+            },
+            success: function (result) {
+                bootbox.alert({
+                    title: "Info",
+                    message: result,
+                    callback: function (result) { }
+                });
+            },
+            complete: function (result) {
+                $('.loader').fadeOut();
+                //location.href = "/Item/ItemDetails/";
+
+            }
+        })
+    })
+
+    function AjaxPost(formData) {
+        $('.loader').show();
+
+        var ajaxConfig = {
+            type: "post",
+            url: "/Item/UpdateImage",
+            data: new FormData(formData),
+            success: function (result) {
+                $('.loader').fadeOut();
+                bootbox.alert({
+                    title: "Info",
+                    message: result,
+                    callback: function (result) {                        
+                    }
+                });
+            },
+            complete: function (result) {
+                
+                
+            }
+
+        }
+
+        ajaxConfig["contentType"] = false;
+        ajaxConfig["processData"] = false;
+
+        $.ajax(ajaxConfig);
+        //return false;
+    }
+</script>

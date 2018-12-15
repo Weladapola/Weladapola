@@ -109,6 +109,7 @@
 {
     MessageBox UserMessage = (MessageBox)TempData["Message"];
     @Html.Raw("<script>bootbox.alert('" + UserMessage.Message + "');</script>");
+    TempData.Remove("Message");
 }
 
 <script>

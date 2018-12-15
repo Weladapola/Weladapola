@@ -59,12 +59,12 @@
                             @Html.DropDownList("ItemCategory", null, "Select Category", new { @class = "form-control select2", @Id = "CategoryId", Name = "CategoryId", @required = "required" })
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    @*<div class="col-md-4">
                         <div class="form-group">
                             <label>Item Code</label>
-                            <input type="text" class="form-control" id="ItemCode" name="ItemCode" required="required" />
+                            <input type="text" class="form-control" id="ItemCode" name="ItemCode" required="required" value="@Guid.NewGuid().ToString()" disabled="disabled"/>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Item Name</label>
@@ -74,73 +74,34 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Item Description</label>
-                            <input type="text" class="form-control" id="ItemDescription" name="Description" required="required" />
+                            <input type="text" class="form-control" id="ItemDescription" name="Description"  />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Item Sinhala Description</label>
-                            <input type="text" class="form-control" id="ItemSinhalaDescription" name="SinghalaDescription" required="required" />
+                            <input type="text" class="form-control" id="ItemSinhalaDescription" name="SinghalaDescription"  />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Item Tamil Description</label>
-                            <input type="text" class="form-control" id="ItemTamilDescription" name="TamilDescription" required="required" />
+                            <input type="text" class="form-control" id="ItemTamilDescription" name="TamilDescription"  />
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Image</label>
-                            <input type="file" class="form-control" id="Image" name="ImageUpload" required="required" />
+                            <input type="file" class="form-control" id="Image" name="ImageUpload"  />
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
     </form>
 </section>
 
-
-@*<script type="text/javascript">
-    function AddItems(ctrl, event) {
-        event.preventDefault();
-        var _ItemCategory = $("#CategoryId").val();
-        var _ItemCode = $("#ItemCode").val();
-        var _ItemName = $("#ItemName").val();
-        var _ItemDescription = $("#ItemDescription").val();
-        var _ItemSinhalaDescription = $("#ItemSinhalaDescription").val();
-        var _ItemTamilDescription = $("#ItemTamilDescription").val();
-
-        var _ImageUpload = $("#Image").get(0);
-        var _files = _ImageUpload.files;
-
-        // Create FormData object
-        var _fileData = new FormData();
-
-        // Looping over all files and add it to FormData object
-        for (var i = 0; i < _files.length; i++) {
-            _fileData.append(_files[i].name, _files[i]);
-        }
-
-
-        $('.loader').show();
-
-        $.ajax({
-            url: '@Url.Action("AddItem","Item")',
-            type: "POST",
-            contentType: false, // Not to set any content header
-            processData: false, // Not to process data
-            data: _fileData,
-            success: function (result) {
-                $('.loader').fadeOut();
-                location.reload();
-            }
-        });
-    }
-</script>*@
-
-<script>
+<script type="text/javascript">
     function AjaxPost(formData) {
         $('.loader').show();
 
@@ -150,7 +111,7 @@
             data: new FormData(formData),
             success: function (result) {
                 $('.loader').fadeOut();
-                //location.reload();
+                location.reload();
             }
             
         }

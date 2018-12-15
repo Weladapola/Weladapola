@@ -44,7 +44,7 @@ namespace BTCD_System.Controllers
             return View(lstItem);
         }
 
-        //[Authorize(Roles = "Create-Stock")]
+        [Authorize(Roles = "Add-Item")]
         public ActionResult DetailsGrid()
         {
             ViewBag.ItemCategory = GetCategories();
@@ -101,10 +101,12 @@ namespace BTCD_System.Controllers
         {
             string fileName = Path.GetFileNameWithoutExtension(item.ImageUpload.FileName);
             string extension = Path.GetExtension(item.ImageUpload.FileName);
-            string fName = item.ItemCode + extension;
-            item.ImageUrl = @"~\Content\Images\Vegetables\" + fName;            
+            string fName = item.ItemName + extension;
+            item.ImageUrl = @"~\Content\Images\Vegetables\" + fName;
 
-            string msg = clsM_Item.CreateItem(item.CategoryId, item.ItemCode, item.ItemName, item.Description, item.SinghalaDescription, item.TamilDescription,item.ImageUrl);
+            string guid = Guid.NewGuid().ToString();     
+
+            string msg = clsM_Item.CreateItem(item.CategoryId, guid, item.ItemName, item.Description, item.SinghalaDescription, item.TamilDescription,item.ImageUrl);
 
             if (!string.IsNullOrEmpty(msg))
             {
@@ -112,12 +114,53 @@ namespace BTCD_System.Controllers
             }
             else
             {
-                item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/Vegetables"), fName));
-                TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Item Created. Code: " + item.ItemCode };
+                try
+                {
+                    if(System.IO.File.Exists(item.ImageUrl))
+                    {
+                        System.IO.File.Delete(item.ImageUrl);
+                    }
+
+                    item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/Vegetables"), fName));
+                    TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Item Created. Name: " + item.ItemName };
+                }
+                catch(Exception ex)
+                {
+                    TempData["Message"] = new MessageBox { CssClassName = "alert-danger", Title = "Error!", Message = ex.ToString() };
+                }
             }
+            
+            return Content(msg);
+        }
+
+        [Authorize(Roles = "Item - List")]
+        public ActionResult ItemDetails()
+        {
+            ViewBag.ItemCategory = GetCategories();
 
             return View();
+        }        
+
+        [HttpPost]
+        public ActionResult ItemDetails(int _CategoryId)
+        {
+            List<ItemM> item = new List<ItemM>();
+            item = clsM_Item.GetItemsByCategories(_CategoryId);
+
+            return PartialView("_PartialItemDetailGrid", item);
         }
+
+        [HttpPost]
+        public ActionResult ItemDelete(int _CategoryId, string _ItemID)
+        {
+            string msg = clsM_Item.DeleteItem(int.Parse(_ItemID));
+
+            List<ItemM> item = new List<ItemM>();
+            item = clsM_Item.GetItemsByCategories(_CategoryId);
+
+            return PartialView("_PartialItemDetailGrid", item);
+        }
+
 
         [NonAction]
         private List<SelectListItem> GetCategories()
@@ -319,6 +362,58 @@ namespace BTCD_System.Controllers
         public ActionResult Cancel()
         {
             return RedirectToAction("Category", "Item");
+        }
+
+        [HttpPost]
+        public ActionResult ItemEdit(int ItemID)
+        {
+            ItemM ItemM = clsM_Item.GetItemByItemId(ItemID);
+            return View(ItemM);
+        }
+
+        [HttpPost]
+        public ActionResult ItemEditByID(int _ItemID,string _ItemName,string _Description,string _SinghalaDescription,string _TamilDescription)
+        {
+            var msg = clsM_Item.UpdateItemById(_ItemID, _ItemName, _Description, _SinghalaDescription, _TamilDescription,"a");
+
+            //msg = "Item: " + _ItemName + "- Successfully Updated";
+            TempData["Message"] = new MessageBox { CssClassName = ".alert-success", Title = "Success!", Message = "Item: " + _ItemName + "- Successfully Updated" };
+            return Content(msg);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateImage(ItemM item)
+        {
+            string fileName = Path.GetFileNameWithoutExtension(item.ImageUpload.FileName);
+            string extension = Path.GetExtension(item.ImageUpload.FileName);
+            string fName = item.ItemName + extension;
+            item.ImageUrl = @"~\Content\Images\Vegetables\" + fName;
+
+            string msg = clsM_Item.UpdateItemImageUrlId(item.ItemId,item.ImageUrl);
+            if (msg== "Item Not Updated")
+            {
+                TempData["Message"] = new MessageBox { CssClassName = "alert-danger", Title = "Error!", Message = msg };
+            }
+            else
+            {
+                try
+                {
+                    if (System.IO.File.Exists(item.ImageUrl))
+                    {
+                        System.IO.File.Delete(item.ImageUrl);
+                    }
+
+                    item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/Vegetables"), fName));
+                    TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Item Created. Name: " + item.ItemName };
+                }
+                catch (Exception ex)
+                {
+                    TempData["Message"] = new MessageBox { CssClassName = "alert-danger", Title = "Error!", Message = ex.ToString() };
+                    msg = "Not updated";
+                }
+            }
+
+            return Content(msg);
         }
     }
 }

@@ -34,7 +34,7 @@
                         <div class="btn-group">
                             <button type="submit" class="btn btn-primary">&nbsp;Save&nbsp;&nbsp;</button>
                             <button type="reset" class="btn btn-success">&nbsp;Reset&nbsp;&nbsp;</button>
-                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Cancel", "CustomerRequirment")'"> Cancel  </button>
+                            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Cancel", "CustomerRequirment")'"> Home  </button>
                         </div>
 
                     </div>
@@ -43,30 +43,30 @@
         </div>
 
 
-        <div class="box box-default">
+        @*<div class="box box-default">
             <div class="box-header with-border">
                 <h3 class="box-title">Customer Details</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 </div>
-            </div>
+            </div>*@
             <!-- /.box-header -->
 
-            <div class="box-body">
+            @*<div class="box-body">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Item Category</label>
-                            @Html.DropDownListFor(model => model.SingleOrDefault().CustomerId, (IEnumerable<SelectListItem>)(ViewBag.Customer), "Select Customer", new { @class = "form-control select2", @style = "width: 100%;", @Id = "CustomerId", required = "required" })
+                            @Html.DropDownListFor(model => model.SingleOrDefault().CustomerId, (IEnumerable<SelectListItem>)(ViewBag.Customer), "Select Customer", new { @class = "form-control select2", @style = "width: 100%;", @Id = "CustomerId", @required = "required" })
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
 
 
-        </div>
+        @*</div>*@
 
 
     }

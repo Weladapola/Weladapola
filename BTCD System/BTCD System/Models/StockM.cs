@@ -10,24 +10,24 @@ namespace BTCD_System.Models
     {
         public int StockId { get; set; }
 
-        [Required]
+
         public int ItemId { get; set; }
         public string ItemCode { get; set; }
         public string ItemName { get; set; }
         public string EmployeeCode { get; set; }
-        [Required]
+
         public int LocationId { get; set; }
-        [Required]
+
         public int GradeId { get; set; }
         public string Grade { get; set; }
-        [Required]
+
         public decimal Quantity { get; set; }
         public decimal RemainQuantity { get; set; }
-        [Required]
+
         public int UOMId { get; set; }
         public string UOMName { get; set; }
 
-        [Required]
+
         public decimal UnitPrice { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -37,7 +37,7 @@ namespace BTCD_System.Models
         // Anuradha Added Comment Field
         public string Description { get; set; }
         public int NoOfBids { get; set; }
-        [DataType(DataType.Date)]
+
         public DateTime CreateUntill { get; set; }
     }
 }

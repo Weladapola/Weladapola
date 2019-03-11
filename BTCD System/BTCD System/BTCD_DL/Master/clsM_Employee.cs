@@ -37,7 +37,7 @@ namespace BTCD_System.BTCD_DL.Master
             p[9] = new SqlParameter("@BankCode", SqlDbType.VarChar) { Value = Employee.BankCode };
             p[10] = new SqlParameter("@BranchCode", SqlDbType.VarChar) { Value = Employee.BranchCode };
             p[11] = new SqlParameter("@AccountNo", SqlDbType.VarChar) { Value = Employee.AccountNo };         
-            p[12] = new SqlParameter("@Email", SqlDbType.VarChar) { Value = Employee.Email };
+            p[12] = new SqlParameter("@Email", SqlDbType.VarChar) { Value = "" };
             p[13] = new SqlParameter("@NICNo", SqlDbType.VarChar) { Value = Employee.NICNo };
             p[14] = new SqlParameter("@Dob", SqlDbType.Date) { Value = Employee.Dob };
             p[15] = new SqlParameter("@Username", SqlDbType.VarChar) { Value = username };

@@ -28,7 +28,11 @@ namespace BTCD_System.Controllers
             return View();
         }
 
-    
+        public ActionResult Cancel()
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         [Authorize(Roles = "Create-Employee")]
         [HttpPost]
         [ActionName("Create")]
@@ -45,7 +49,9 @@ namespace BTCD_System.Controllers
 
                 if (ErrMsg == string.Empty)
                 {
-                   return RedirectToAction("Create");
+                    TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Employee has been created" };
+                    return RedirectToAction("Create");
+
                 }
             }
 

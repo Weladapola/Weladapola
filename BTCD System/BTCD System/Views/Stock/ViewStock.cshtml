@@ -37,7 +37,7 @@
                     <div class="btn-group">
                         @using (Html.BeginForm("Index", "Home", FormMethod.Get))
                         {
-                            <button type="submit" class="btn btn-warning"> Cancel  </button>
+                            <button type="submit" class="btn btn-warning"> Home  </button>
                         }
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                                         <th>Action</th>
                                         <th>Item Name</th>
                                         <th>Location</th>
-                                        <th>Owner</th>
+                                        @*<th>Owner</th>*@
                                         <th>Grade</th>
                                         <th>Quantity</th>
                                         <th>Unit Price (Rs)</th>
@@ -85,7 +85,7 @@
                                             </td>
                                             <td> @Stock.ItemName</td>
                                             <td> @Stock.Location</td>
-                                            <td> @Stock.StockOwner</td>
+                                            @*<td> @Stock.StockOwner</td>*@
                                             <td> @Stock.Grade</td>
                                             <td> @Stock.RemainQuantity</td>
                                             <td> @Stock.UnitPrice</td>
@@ -128,12 +128,12 @@
               "searchable": false
           },
           {
-              "targets": [4],
+              "targets": [3],
               "visible": true,
               "searchable": false
           },
           {
-              "targets": [5],
+              "targets": [4],
               "visible": true,
               "searchable": false
           }

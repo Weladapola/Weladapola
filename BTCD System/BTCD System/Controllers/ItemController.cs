@@ -99,12 +99,27 @@ namespace BTCD_System.Controllers
         [HttpPost]
         public ActionResult AddItem(ItemM item)
         {
-            string fileName = Path.GetFileNameWithoutExtension(item.ImageUpload.FileName);
-            string extension = Path.GetExtension(item.ImageUpload.FileName);
-            string fName = item.ItemName + extension;
-            item.ImageUrl = @"~\Content\Images\Vegetables\" + fName;
+            string fileName = "";
+            string extension = "";
+            string fName = "";
+            if (item.ImageUpload != null)
+                {
+                 fileName = Path.GetFileNameWithoutExtension(item.ImageUpload.FileName);
+                 extension = Path.GetExtension(item.ImageUpload.FileName);
+                 fName = item.ItemName + extension;
+                item.ImageUrl = @"~\Content\Images\Vegetables\" + fName;
+            }
+            else
+            {
+                item.ImageUrl = "";
+            }
 
-            string guid = Guid.NewGuid().ToString();     
+            if (item.TamilDescription == null)
+            {
+                item.TamilDescription = "";
+            }
+
+                string guid = Guid.NewGuid().ToString();     
 
             string msg = clsM_Item.CreateItem(item.CategoryId, guid, item.ItemName, item.Description, item.SinghalaDescription, item.TamilDescription,item.ImageUrl);
 
@@ -363,6 +378,7 @@ namespace BTCD_System.Controllers
         {
             return RedirectToAction("Category", "Item");
         }
+
 
         [HttpPost]
         public ActionResult ItemEdit(int ItemID)

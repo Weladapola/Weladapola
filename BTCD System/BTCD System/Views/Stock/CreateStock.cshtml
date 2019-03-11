@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                             <label>Location</label>
-                            @Html.DropDownListFor(model => model.LocationId, (IEnumerable<SelectListItem>)(ViewBag.Location), "Select Location", new { @class = "form-control select2", @style = "width: 100%;", required = "required" })
+                            @Html.DropDownListFor(model => model.LocationId, (IEnumerable<SelectListItem>)(ViewBag.Location), "Select Location", new { @class = "form-control select2", @style = "width: 100%;", @required = "required" })
                         </div>
 
                        
@@ -78,13 +78,13 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Grade</label>
-                            @Html.DropDownListFor(model => model.GradeId, (IEnumerable<SelectListItem>)(ViewBag.Grade), "Select Item Grade", new { @class = "form-control select2", @style = "width: 100%;", required = "required" })
+                            @Html.DropDownListFor(model => model.GradeId, (IEnumerable<SelectListItem>)(ViewBag.Grade), "Select Item Grade", new { @class = "form-control select2", @style = "width: 100%;", @required = "required" })
                         </div>
 
 
                         <div class="form-group">
                             <label>UOM</label>
-                            @Html.DropDownListFor(model => model.UOMId, (IEnumerable<SelectListItem>)(ViewBag.UOM), "Select UOM", new { @class = "form-control select2", @style = "width: 100%;", required = "required" })
+                            @Html.DropDownListFor(model => model.UOMId, (IEnumerable<SelectListItem>)(ViewBag.UOM), "Select UOM", new { @class = "form-control select2", @style = "width: 100%;", @required = "required" })
                         </div>
 
                         <div class="form-group">

@@ -122,21 +122,21 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Order Qty</label>
-                            @Html.EditorFor(model => model.RequestedQty, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Order Qty", required = "required" } })
+                            @Html.EditorFor(model => model.RequestedQty, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Order Qty", @required = "required" } })
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Reuest Price</label>
-                            @Html.EditorFor(model => model.RequestedPrice, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Request Price (Rs)", required = "required" } })
+                            @Html.EditorFor(model => model.RequestedPrice, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Request Price (Rs)", @required = "required" } })
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Required Date</label>
-                            @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Request Date", required = "required", @type = "date", @pattern = "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))", @Id = "RequiredDate" } })
+                            @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Request Date", @required = "required", @type = "date", @pattern = "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))", @Id = "RequiredDate" } })
                         </div>
                     </div>
 

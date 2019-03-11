@@ -1908,7 +1908,6 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
-    <Compile Include="Controllers\ReportsTrnController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\UserController.cs" />

@@ -5,12 +5,12 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label>Item Category</label>
-                @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)(ViewBag.Category), "Select Category", new { @class = "form-control select2", @style = "width: 100%;", @Id = "CategoryId", required = "required", @onchange = "FillItemsFormCategory();" })
+                @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)(ViewBag.Category), "Select Category", new { @class = "form-control select2", @style = "width: 100%;", @Id = "CategoryId", @required = "required", @onchange = "FillItemsFormCategory();" })
             </div>
 
             <div class="form-group">
                 <label>Item</label>
-                @Html.DropDownListFor(model => model.ItemId, Enumerable.Empty<SelectListItem>(), "Select Item", new { @class = "form-control select2", @style = "width: 100%;", @Id = "ItemId", required = "required", @onchange = "FillGradeFromItem();" })
+                @Html.DropDownListFor(model => model.ItemId, Enumerable.Empty<SelectListItem>(), "Select Item", new { @class = "form-control select2", @style = "width: 100%;", @Id = "ItemId", @required = "required", @onchange = "FillGradeFromItem();" })
             </div>
 
             <div class="form-group">
@@ -23,24 +23,24 @@
 
             <div class="form-group">
                 <label>UOM</label>
-                @Html.DropDownListFor(model => model.UOMId, (IEnumerable<SelectListItem>)(ViewBag.UOM), "Select UOM", new { @class = "form-control select2", @style = "width: 100%;", @Id = "UOMId", required = "required" })
+                @Html.DropDownListFor(model => model.UOMId, (IEnumerable<SelectListItem>)(ViewBag.UOM), "Select UOM", new { @class = "form-control select2", @style = "width: 100%;", @Id = "UOMId", @required = "required" })
             </div>
 
             <div class="form-group">
                 <label>Required Date</label>
-                @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Required Date", required = "required", @type = "date", @pattern = "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))", @Id = "RequiredDate" } })
+                @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Required Date", @required = "required", @type = "date", @pattern = "(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))", @Id = "RequiredDate" } })
             </div>
 
             <div class="form-group">
                 <label>Order Qty</label>
-                @Html.EditorFor(model => model.RequiredQty, new { htmlAttributes = new { @class = "form-control decimal", placeholder = "Required Qty", @Id = "RequiredQty", required = "required" } })
+                @Html.EditorFor(model => model.RequiredQty, new { htmlAttributes = new { @class = "form-control", placeholder = "Required Qty", @Id = "RequiredQty", @required = "required" } })
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="form-group">
                 <label>Reuest Price</label>
-                @Html.EditorFor(model => model.RequiredPrice, new { htmlAttributes = new { @class = "form-control decimal", @Id = "RequiredPrice", placeholder = "Required Price (Rs)", required = "required" } })
+                @Html.EditorFor(model => model.RequiredPrice, new { htmlAttributes = new { @class = "form-control", @Id = "RequiredPrice", placeholder = "Required Price (Rs)", @required = "required" } })
             </div>
 
             <div class="form-group">

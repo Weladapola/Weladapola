@@ -280,7 +280,7 @@ namespace BTCD_System.Controllers
 
         public ActionResult Cancel()
         {
-            return RedirectToAction("ViewMyStock", "Stock");
+            return RedirectToAction("ViewStock", "Stock");
         }
 
     }

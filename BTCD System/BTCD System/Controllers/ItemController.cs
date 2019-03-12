@@ -136,7 +136,10 @@ namespace BTCD_System.Controllers
                         System.IO.File.Delete(item.ImageUrl);
                     }
 
-                    item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/Vegetables"), fName));
+                    if (item.ImageUrl != "")
+                    {
+                        item.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/Images/Vegetables"), fName));
+                    }
                     TempData["Message"] = new MessageBox { CssClassName = "alert-success", Title = "Success!", Message = "Item Created. Name: " + item.ItemName };
                 }
                 catch(Exception ex)
